@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="wallacezh&#39;s blog">
 <meta property="og:description" content="为什么要学习github当你一切搞定之后，就是日常三部曲$ git add .  $ git commit -m -a  $ git push origin hexo 再也不用担心备份或者删库的问题 1. 基本概念">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-25T08:45:31.394Z">
+<meta property="og:updated_time" content="2019-02-25T08:48:36.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习github">
 <meta name="twitter:description" content="为什么要学习github当你一切搞定之后，就是日常三部曲$ git add .  $ git commit -m -a  $ git push origin hexo 再也不用担心备份或者删库的问题 1. 基本概念">
@@ -203,7 +203,8 @@ $ git push origin hexo
 <p>意思是收藏项目的人数，一个项目有100个star都很不容易了</p>
 </li>
 <li><p>复制克隆项目(Fork)</p>
-<p>你开源了一个项目，别人想在你这个项目的基础上做些改进，然后应用到自己的项目中，这个时候他就可以Fork你的项目(右上角fork)。然后他的github主页上就多了个项目，只不过这个项目是基于你的项目基础，他可以根据你的随心所欲去改进，但是丝毫不会影响到原有项目的代码与结构。</p>
+<p>你开源了一个项目，别人想在你这个项目的基础上做些改进，然后应用到自己的项目中，这个时候他就可以Fork你的项目(右上角fork)。</p>
+<p>然后他的github主页上就多了个项目，只不过这个项目是基于你的项目基础，他可以根据你的随心所欲去改进，但是丝毫不会影响到原有项目的代码与结构。</p>
 <p>fork后，仓库是独立存在的</p>
 </li>
 <li><p>new pull request 发起一个更新请求</p>
@@ -211,20 +212,20 @@ $ git push origin hexo
 <p>git2可将修改更新到他的仓库 confirm merge。</p>
 </li>
 </ul>
-<h2 id="2-开源项目贡献流程"><a href="#2-开源项目贡献流程" class="headerlink" title="2.开源项目贡献流程"></a>2.开源项目贡献流程</h2><h3 id="1-新建issue"><a href="#1-新建issue" class="headerlink" title="1. 新建issue"></a>1. 新建issue</h3><pre><code>提交使用问题或者建议或者想法
-</code></pre><h3 id="2-pull-request"><a href="#2-pull-request" class="headerlink" title="2. pull request"></a>2. pull request</h3><p>  步骤：</p>
-<pre><code>1. fork项目
-
-2. 修改自己仓库的代码
-
-3. 发起pull request
-
-4. 等待作者审核 confirm merge
-</code></pre><h2 id="3-git工作区域"><a href="#3-git工作区域" class="headerlink" title="3. git工作区域"></a>3. git工作区域</h2><h3 id="Git-repository-Git仓库-🆗"><a href="#Git-repository-Git仓库-🆗" class="headerlink" title="- Git repository(Git仓库)🆗"></a>- Git repository(Git仓库)🆗</h3><p>  最终确定的文件保存到仓库，成为一个新的版本，并且对他人可见</p>
-<pre><code>$ git commit -m 后接提交信息
-$ git commit -m -a   -a表示提交所有
-$ git commit -amend   某次提交中，追加提交，即只生成一次提交信息
-</code></pre><h3 id="暂存区"><a href="#暂存区" class="headerlink" title="- 暂存区"></a>- 暂存区</h3><p>  暂存已经修改的文件最后统一提交到git仓库中👆,add移到暂存区<br>    $ git add .  </p>
+<h2 id="2-开源项目贡献流程"><a href="#2-开源项目贡献流程" class="headerlink" title="2.开源项目贡献流程"></a>2.开源项目贡献流程</h2><h3 id="1-新建issue"><a href="#1-新建issue" class="headerlink" title="1. 新建issue"></a>1. 新建issue</h3><p>提交使用问题或者建议或者想法</p>
+<h3 id="2-pull-request"><a href="#2-pull-request" class="headerlink" title="2. pull request"></a>2. pull request</h3><p>步骤：</p>
+<ol>
+<li><p>fork项目</p>
+</li>
+<li><p>修改自己仓库的代码</p>
+</li>
+<li><p>发起pull request</p>
+</li>
+<li><p>等待作者审核 confirm merge</p>
+</li>
+</ol>
+<h2 id="3-git工作区域"><a href="#3-git工作区域" class="headerlink" title="3. git工作区域"></a>3. git工作区域</h2><h3 id="Git-repository-Git仓库-🆗"><a href="#Git-repository-Git仓库-🆗" class="headerlink" title="- Git repository(Git仓库)🆗"></a>- Git repository(Git仓库)🆗</h3><p>  最终确定的文件保存到仓库，成为一个新的版本，并且对他人可见<br>    $ git commit -m 后接提交信息<br>    $ git commit -m -a   -a表示提交所有<br>    $ git commit -amend   某次提交中，追加提交，即只生成一次提交信息</p>
+<h3 id="暂存区"><a href="#暂存区" class="headerlink" title="- 暂存区"></a>- 暂存区</h3><p>  暂存已经修改的文件最后统一提交到git仓库中👆,add移到暂存区<br>    $ git add .  </p>
 <p>  从工作区添加所有进暂存区</p>
 <h3 id="工作区-working-Directory"><a href="#工作区-working-Directory" class="headerlink" title="- 工作区(working Directory)"></a>- 工作区(working Directory)</h3><p>  添加、编辑、修改文件等动作👆</p>
 <h2 id="3-git初始化及仓库创建和操作"><a href="#3-git初始化及仓库创建和操作" class="headerlink" title="3.git初始化及仓库创建和操作"></a>3.git初始化及仓库创建和操作</h2><h3 id="1-设置用户名"><a href="#1-设置用户名" class="headerlink" title="1. 设置用户名"></a>1. 设置用户名</h3><pre><code>$ git config --global user.name &apos;&apos;
