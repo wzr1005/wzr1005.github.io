@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/23/5c716b942fcf5.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/23/5c716b3e9da20.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/24/5c716e4037573.png">
-<meta property="og:updated_time" content="2019-02-24T20:14:01.869Z">
+<meta property="og:updated_time" content="2019-02-25T08:04:07.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客遇到的问题">
 <meta name="twitter:description" content="分类插件，tags插件，四个身位">
@@ -172,7 +172,244 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-搭建博客遇到的问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      搭建博客遇到的问题
+    </h1>
+  
+
+        
+        <a href="/2019/02/23/搭建博客遇到的问题/" class="archive-article-date">
+  	<time datetime="2019-02-23T09:26:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
+    <p>分类插件，tags插件，四个身位</p>
+<a id="more"></a>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29744085&auto=1&height=66"></iframe>
+
+<p>1.草稿相当于很多博客都有的私密文章功能。</p>
+<ul>
+<li><p>执行</p>
+<p>  $ hexo new draft “new draft”</p>
+<p>  注意，第一次指令一定要是以上，然后他就会创建一个_draft文件夹</p>
+</li>
+<li><p>如果你希望在网站上看自己写的draft，更改配置文件</p>
+<p>  render_drafts: true;</p>
+<p>  npm install hexo-deployer-git –save</p>
+</li>
+</ul>
+<p>报错行</p>
+<pre><code>npm WARN babel-eslint@10.0.1 requires a peer of eslint@&gt;= 4.12.1 but none is installed. You must install peer dependencies yourself.
+</code></pre><p>解决办法：<br>    npm install -g eslint</p>
+<p>继续安装</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p>报错行：<br><!-- more --></p>
+<pre><code>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.7 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.7: wanted {&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;} (current: {&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;})
+</code></pre><p>fsevents不在package.json里，但是仍然安装了，是因为你的系统是Windows系统，fsevents是苹果系统的可选依赖,你的项目有可能是团队项目，别人在他的mac上安装了fsevents相关依赖库，所以到这边你也就安装到你的windows上边了。你可以检查你的package.json 文件中是不是有fsevents相关依赖，删除即好！<br>如果没有，其他的npm包也会有依赖fsevents的！！！<br>这是warning错误，是因为mac下需要 fsevents，这里是在windows环境，所以可以忽略这个警告，对你没什么影响的。</p>
+<h1 id="根据端口杀死进程"><a href="#根据端口杀死进程" class="headerlink" title="根据端口杀死进程"></a>根据端口杀死进程</h1><p>找出4000端口号的进程</p>
+<pre><code>netstat -ano | findstr 4000，
+</code></pre><p>最右为其PID号</p>
+<pre><code>tasklist | findstr &quot;PID&quot;
+</code></pre><p>最后根据查询到的PID号杀死进程</p>
+<pre><code>taskkill -pid PID -f
+</code></pre><h1 id="生成所有文件，而不是只是监测改动文件"><a href="#生成所有文件，而不是只是监测改动文件" class="headerlink" title="生成所有文件，而不是只是监测改动文件"></a>生成所有文件，而不是只是监测改动文件</h1><pre><code>$ hexo g --watch
+</code></pre><h1 id="搭建好了，一直404"><a href="#搭建好了，一直404" class="headerlink" title="搭建好了，一直404"></a>搭建好了，一直404</h1><p>  原来是仓库名字没有取好，应该是username.github.io</p>
+<ul>
+<li><p>调图片格式 #<img src="https://i.loli.net/2019/02/23/5c7127d4ccfaf.jpg" width="300" height="433" alt="卷土重来"></p>
+<p>效果如下<br><img src="https://i.loli.net/2019/02/23/5c7127d4ccfaf.jpg" width="300" height="433" alt="卷土重来"></p>
+</li>
+<li><p>网易云因为版权生成不了外链的问题解决方法</p>
+<p>1.首先鼠标右键点击’生成外链’按钮，选择查看元素</p>
+<p>  <img src="https://i.loli.net/2019/02/23/5c716aa2f3a7d.png" alt="复制内容"></p>
+<p>2.复制选中的元素粘贴到<a href="http://music.163.com/#后面，生成的效果如图" target="_blank" rel="noopener">http://music.163.com/#后面，生成的效果如图</a></p>
+<p>  <img src="https://i.loli.net/2019/02/23/5c716b942fcf5.png" alt="生成网址"></p>
+<p>3.打开网址，接下来就会了</p>
+<p>  <img src="https://i.loli.net/2019/02/23/5c716b3e9da20.png" alt="生成外链"></p>
+<ul>
+<li><p>yilia主题背景音乐</p>
+<p><img src="https://i.loli.net/2019/02/24/5c716e4037573.png" alt="生成1"></p>
+<p>外链播放器可以通过调节外链的参数来控制大小</p>
+</li>
+<li><p>向<a href="&quot;http://www.sousuoyinqingtijiao.com/&quot;">屈站长</a>提交你的网址，这样可以更快地被收录和检索</p>
+</li>
+<li><p><a href="&quot;http://www.bitbug.net/&quot;">比特虫</a>可以制作你的网站logo，如果没有标准的图片做头像，可以去QQ头像上截取一个</p>
+</li>
+<li><p><a href="&quot;https://www.jianshu.com/p/517263426abd&quot;">添加百度统计</a> 有时间再写一个</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="博客一篇文章都没有"><a href="#博客一篇文章都没有" class="headerlink" title="博客一篇文章都没有"></a>博客一篇文章都没有</h1>
+  
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/23/搭建博客遇到的问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/02/23/起风了/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          起风了 唯有努力生存
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
           </div>
         </div>
       </div>
