@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>图的BFS | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大致题意是给出n个用户的关注列表，英文不好的人别理解错了，然后假设某个用户发一条微博，最多会有多少转发量，微博辐射力至多传递L层 就相当于在一个图中，选取一个点BFSL层，计算结点个数。 1076 Forwards on Weibo  Weibo is known as the Chinese version of Twitter. One user on Weibo may have many">
+  <meta name="description" content="大致题意是给出n个用户的关注列表，英文不好的人别理解错了，然后假设某个用户发一条微博，最多会有多少转发量，微博辐射力至多传递L层 就相当于在一个图中，选取一个点BFSL层，计算结点个数。 1076 Forwards on Weibo">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图的BFS">
 <meta property="og:url" content="http://yoursite.com/2019/03/05/图的BFS/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
-<meta property="og:description" content="大致题意是给出n个用户的关注列表，英文不好的人别理解错了，然后假设某个用户发一条微博，最多会有多少转发量，微博辐射力至多传递L层 就相当于在一个图中，选取一个点BFSL层，计算结点个数。 1076 Forwards on Weibo  Weibo is known as the Chinese version of Twitter. One user on Weibo may have many">
+<meta property="og:description" content="大致题意是给出n个用户的关注列表，英文不好的人别理解错了，然后假设某个用户发一条微博，最多会有多少转发量，微博辐射力至多传递L层 就相当于在一个图中，选取一个点BFSL层，计算结点个数。 1076 Forwards on Weibo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-04T17:34:36.583Z">
+<meta property="og:updated_time" content="2019-03-04T17:36:22.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图的BFS">
-<meta name="twitter:description" content="大致题意是给出n个用户的关注列表，英文不好的人别理解错了，然后假设某个用户发一条微博，最多会有多少转发量，微博辐射力至多传递L层 就相当于在一个图中，选取一个点BFSL层，计算结点个数。 1076 Forwards on Weibo  Weibo is known as the Chinese version of Twitter. One user on Weibo may have many">
+<meta name="twitter:description" content="大致题意是给出n个用户的关注列表，英文不好的人别理解错了，然后假设某个用户发一条微博，最多会有多少转发量，微博辐射力至多传递L层 就相当于在一个图中，选取一个点BFSL层，计算结点个数。 1076 Forwards on Weibo">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
   
@@ -187,8 +187,7 @@
       <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
     <p>大致题意是给出n个用户的关注列表，英文不好的人别理解错了，然后假设某个用户发一条微博，最多会有多少转发量，微博辐射力至多传递L层</p>
 <p>就相当于在一个图中，选取一个点BFSL层，计算结点个数。</p>
-<p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805392092020736" target="_blank" rel="noopener">1076 Forwards on Weibo </a></p>
-<p>Weibo is known as the Chinese version of Twitter. One user on Weibo may have many followers, and may follow many other users as well. Hence a social network is formed with followers relations. When a user makes a post on Weibo, all his/her followers can view and forward his/her post, which can then be forwarded again by their followers. Now given a social network, you are supposed to calculate the maximum potential amount of forwards for any specific user, assuming that only L levels of indirect followers are counted.<br>Input Specification:</p>
+<p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805392092020736" target="_blank" rel="noopener">1076 Forwards on Weibo </a><br><a id="more"></a><br>Weibo is known as the Chinese version of Twitter. One user on Weibo may have many followers, and may follow many other users as well. Hence a social network is formed with followers relations. When a user makes a post on Weibo, all his/her followers can view and forward his/her post, which can then be forwarded again by their followers. Now given a social network, you are supposed to calculate the maximum potential amount of forwards for any specific user, assuming that only L levels of indirect followers are counted.<br>Input Specification:</p>
 <p>Each input file contains one test case. For each case, the first line contains 2 positive integers: N (≤1000), the number of users; and L (≤6), the number of levels of indirect followers that are counted. Hence it is assumed that all the users are numbered from 1 to N. Then N lines follow, each in the format:</p>
 <p>M[i] user_list[i]</p>
 <p>where M[i] (≤100) is the total number of people that user[i] follows; and user_list[i] is a list of the M[i] users that followed by user[i]. It is guaranteed that no one can follow oneself. All the numbers are separated by a space.</p>
