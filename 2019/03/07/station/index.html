@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="wallacezh&#39;s blog">
 <meta property="og:description" content="1072 Gas Station这道题读懂题意也是不简单，恨我英语渣啊。。。怪不得说英语是计算机的第二语言，什么时候我的英语才能上一个台阶~！ 题目要求在n个住户之间建一个加油站，提供m个加油站的备选位置，要求是加油站离住户尽可能远，且不超出他的service range 这里用的是Dijkstra对每个加油站求一次，时间复杂度上面应该比弗洛伊德好。 这里有以下坑点：  可能越界。const in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-06T16:53:53.347Z">
+<meta property="og:updated_time" content="2019-03-06T16:57:09.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gas station">
 <meta name="twitter:description" content="1072 Gas Station这道题读懂题意也是不简单，恨我英语渣啊。。。怪不得说英语是计算机的第二语言，什么时候我的英语才能上一个台阶~！ 题目要求在n个住户之间建一个加油站，提供m个加油站的备选位置，要求是加油站离住户尽可能远，且不超出他的service range 这里用的是Dijkstra对每个加油站求一次，时间复杂度上面应该比弗洛伊德好。 这里有以下坑点：  可能越界。const in">
@@ -194,7 +194,7 @@
 <li>是最短距离尽可能远的位置，不是尽可能近</li>
 <li>命名上面自己思路要清晰，不然很多变量比较来比较去的，不仔细很容易犯错，而且需要一些浮点与整形的比较</li>
 </ol>
-<p>另外，四舍五入真的是玄学，不知道什么时候可以自动转，什么时候需要自己求</p>
+<p>另外，四舍五入真的是玄学，不知道什么时候可以自动转，什么时候需要自己求<br><a id="more"></a></p>
 <p>1072 Gas Station （30 分）</p>
 <p>A gas station has to be built at such a location that the minimum distance between the station and any of the residential housing is as far away as possible. However it must guarantee that all the houses are in its service range.</p>
 <p>Now given the map of the city and several candidate locations for the gas station, you are supposed to give the best recommendation. If there are more than one solution, output the one with the smallest average distance to all the houses. If such a solution is still not unique, output the one with the smallest index number.<br>Input Specification:</p>
