@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 科学上网 | wallacezh&#39;s blog</title>
+  <title>Dijkstra&amp;平均点权 | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wallacezh&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/tags/科学上网/index.html">
+  <meta name="description" content="1087 All Roads Lead to Rome 计算平均点权的题之前没遇过。string作为结点的value的题已经雨果好几次了，可以用map解决">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dijkstra&amp;平均点权">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/平均点权/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
+<meta property="og:description" content="1087 All Roads Lead to Rome 计算平均点权的题之前没遇过。string作为结点的value的题已经雨果好几次了，可以用map解决">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-07T15:51:51.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wallacezh&#39;s blog">
+<meta name="twitter:title" content="Dijkstra&amp;平均点权">
+<meta name="twitter:description" content="1087 All Roads Lead to Rome 计算平均点权的题之前没遇过。string作为结点的value的题已经雨果好几次了，可以用map解决">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
   
@@ -159,60 +164,197 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-平均点权" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/26/科学上网的教程/" class="archive-article-date">
-  	<time datetime="2019-02-26T08:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/26/科学上网的教程/">科学上网的教程，2刀一个月（可合租）</a>
+    <h1 class="article-title" itemprop="name">
+      Dijkstra&amp;平均点权
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/07/平均点权/" class="archive-article-date">
+  	<time datetime="2019-03-07T15:40:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
+    <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805379664297984" target="_blank" rel="noopener">1087 All Roads Lead to Rome</a></p>
+<p>计算平均点权的题之前没遇过。string作为结点的value的题已经雨果好几次了，可以用map解决<br><a id="more"></a><br>1087 All Roads Lead to Rome （30 分）</p>
+<p>Indeed there are many different tourist routes from our city to Rome. You are supposed to find your clients the route with the least cost while gaining the most happiness.<br>Input Specification:</p>
+<p>Each input file contains one test case. For each case, the first line contains 2 positive integers N (2≤N≤200), the number of cities, and K, the total number of routes between pairs of cities; followed by the name of the starting city. The next N−1 lines each gives the name of a city and an integer that represents the happiness one can gain from that city, except the starting city. Then K lines follow, each describes a route between two cities in the format City1 City2 Cost. Here the name of a city is a string of 3 capital English letters, and the destination is always ROM which represents Rome.<br>Output Specification:</p>
+<p>For each test case, we are supposed to find the route with the least cost. If such a route is not unique, the one with the maximum happiness will be recommanded. If such a route is still not unique, then we output the one with the maximum average happiness – it is guaranteed by the judge that such a solution exists and is unique.</p>
+<p>Hence in the first line of output, you must print 4 numbers: the number of different routes with the least cost, the cost, the happiness, and the average happiness (take the integer part only) of the recommanded route. Then in the next line, you are supposed to print the route in the format City1-&gt;City2-&gt;…-&gt;ROM.<br>Sample Input:</p>
+<p>6 7 HZH<br>ROM 100<br>PKN 40<br>GDN 55<br>PRS 95<br>BLN 80<br>ROM GDN 1<br>BLN ROM 1<br>HZH PKN 1<br>PRS ROM 2<br>BLN HZH 2<br>PKN GDN 1<br>HZH PRS 1</p>
+<p>Sample Output:</p>
+<p>3 3 195 97<br>HZH-&gt;PRS-&gt;ROM</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">210</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1000000000</span>;</span><br><span class="line"><span class="keyword">int</span> G[maxn][maxn], Happy[maxn], pre[maxn], pn[maxn];</span><br><span class="line"><span class="keyword">int</span> n, m, weight[maxn];</span><br><span class="line"><span class="built_in">string</span> stcity;</span><br><span class="line"><span class="built_in">string</span> city1, city2;</span><br><span class="line"><span class="keyword">int</span> visit[maxn], d[maxn], num[maxn];</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; stringToint;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; intTostring;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">	fill(d, d + maxn, INF);</span><br><span class="line">	<span class="built_in">memset</span>(visit, <span class="number">0</span>, <span class="keyword">sizeof</span>(visit));</span><br><span class="line">	pn[s] = <span class="number">0</span>, num[s] = <span class="number">1</span>;</span><br><span class="line">	Happy[s] = weight[s];</span><br><span class="line">	d[s] = <span class="number">0</span>;</span><br><span class="line">	pre[s] = s;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> u = <span class="number">-1</span>, MIN = INF;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (visit[j] == <span class="number">0</span> &amp;&amp; d[j] &lt; MIN) &#123;</span><br><span class="line">				u = j;</span><br><span class="line">				MIN = d[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (u == <span class="number">-1</span>)	<span class="keyword">return</span>;</span><br><span class="line">		visit[u] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; n; v++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (visit[v] == <span class="number">0</span> &amp;&amp; G[u][v] != INF) &#123;</span><br><span class="line">				<span class="keyword">if</span> (d[v] &gt; d[u] + G[u][v]) &#123;</span><br><span class="line">					d[v] = d[u] + G[u][v];</span><br><span class="line">					Happy[v] = Happy[u] + weight[v];</span><br><span class="line">					num[v] = num[u];</span><br><span class="line">					pre[v] = u;</span><br><span class="line">					pn[v] = pn[u] + <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (d[v] == d[u] + G[u][v]) &#123;</span><br><span class="line">					num[v] += num[u];</span><br><span class="line">					<span class="keyword">if</span> (Happy[v] &lt; Happy[u] + weight[v]) &#123;</span><br><span class="line">						Happy[v] = Happy[u] + weight[v];</span><br><span class="line">						pn[v] = num[u] + <span class="number">1</span>;</span><br><span class="line">						pre[v] = u;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">else</span> <span class="keyword">if</span> (Happy[v] == Happy[u] + weight[v]) &#123;</span><br><span class="line">						<span class="keyword">double</span> vavg = <span class="number">1.0</span> * Happy[v] / pn[v];</span><br><span class="line">						<span class="keyword">double</span> uavg = <span class="number">1.0</span> * (Happy[u] + weight[v]) / (pn[u] + <span class="number">1</span>);</span><br><span class="line">						<span class="keyword">if</span> (uavg &gt; vavg) &#123;</span><br><span class="line">							pre[v] = u;</span><br><span class="line">							pn[v] = pn[u] + <span class="number">1</span>;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printpath</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (v == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; intTostring[v];</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	printpath(pre[v]);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"-&gt;"</span> &lt;&lt; intTostring[v];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; stcity;</span><br><span class="line">	stringToint[stcity] = <span class="number">0</span>;</span><br><span class="line">	intTostring[<span class="number">0</span>] = stcity;</span><br><span class="line">	weight[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> h;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; city1 &gt;&gt; weight[i];</span><br><span class="line">		stringToint[city1] = i;</span><br><span class="line">		intTostring[i] = city1;</span><br><span class="line">	&#125;</span><br><span class="line">	fill(G[<span class="number">0</span>], G[<span class="number">0</span>] + maxn * maxn, INF);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; city1 &gt;&gt; city2 &gt;&gt; h;</span><br><span class="line">		<span class="keyword">int</span> u = stringToint[city1];</span><br><span class="line">		<span class="keyword">int</span> v = stringToint[city2];</span><br><span class="line">		G[u][v] = G[v][u] = h;</span><br><span class="line">	&#125;</span><br><span class="line">	Dijkstra(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> a = stringToint[<span class="string">"ROM"</span>];</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d %d %d\n"</span>, num[a], d[a], Happy[a], Happy[a] / pn[a]);</span><br><span class="line">	printpath(a);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">科学上网</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/07/平均点权/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/07/C-C-小知识/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C/C++小知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+  <div id="SOHUCS" sid="平均点权"></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyu6hkPpf",
+        conf: "b404599c955dcd826d873e95270ee484"
+    });
+</script>
+
+  
+
+  
+
+  
 
 
           </div>
@@ -237,9 +379,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
