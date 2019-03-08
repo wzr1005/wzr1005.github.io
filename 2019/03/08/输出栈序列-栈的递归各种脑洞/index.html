@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/3 | wallacezh&#39;s blog</title>
+  <title>输出栈序列,栈的递归各种脑洞 | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wallacezh&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/03/index.html">
+  <meta name="description" content="(img src=”https://i.loli.net/2019/03/08/5c8262218f5de.jpg&amp;quot; width = “520” height = “433”)一个人在群里问了一个好像很基础的题:从1到n压入栈，如何写出打印所有合法出栈序列的code。 当时楞了一下，联想到入栈是先序序列，是不是递归求中序列？不对， 是不是跟全排列有关？好像多此一举，另外全排列的解法不见得">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="输出栈序列,栈的递归各种脑洞">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/输出栈序列-栈的递归各种脑洞/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
+<meta property="og:description" content="(img src=”https://i.loli.net/2019/03/08/5c8262218f5de.jpg&amp;quot; width = “520” height = “433”)一个人在群里问了一个好像很基础的题:从1到n压入栈，如何写出打印所有合法出栈序列的code。 当时楞了一下，联想到入栈是先序序列，是不是递归求中序列？不对， 是不是跟全排列有关？好像多此一举，另外全排列的解法不见得">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-08T13:16:45.669Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wallacezh&#39;s blog">
+<meta name="twitter:title" content="输出栈序列,栈的递归各种脑洞">
+<meta name="twitter:description" content="(img src=”https://i.loli.net/2019/03/08/5c8262218f5de.jpg&amp;quot; width = “520” height = “433”)一个人在群里问了一个好像很基础的题:从1到n压入栈，如何写出打印所有合法出栈序列的code。 当时楞了一下，联想到入栈是先序序列，是不是递归求中序列？不对， 是不是跟全排列有关？好像多此一举，另外全排列的解法不见得">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
   
@@ -159,36 +164,92 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-输出栈序列-栈的递归各种脑洞" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      输出栈序列,栈的递归各种脑洞
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/08/输出栈序列-栈的递归各种脑洞/" class="archive-article-date">
+
+        
+        <a href="/2019/03/08/输出栈序列-栈的递归各种脑洞/" class="archive-article-date">
   	<time datetime="2019-03-08T12:36:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/08/输出栈序列-栈的递归各种脑洞/">输出栈序列,栈的递归各种脑洞</a>
-    </h1>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
+    <p>(img src=”<a href="https://i.loli.net/2019/03/08/5c8262218f5de.jpg&quot;" target="_blank" rel="noopener">https://i.loli.net/2019/03/08/5c8262218f5de.jpg&quot;</a> width = “520” height = “433”)<br>一个人在群里问了一个好像很基础的题:从1到n压入栈，如何写出打印所有合法出栈序列的code。</p>
+<p>当时楞了一下，联想到入栈是先序序列，是不是递归求中序列？不对，</p>
+<p>是不是跟全排列有关？好像多此一举，另外全排列的解法不见得会，我估计很多人都不会，这算很基础的题，但可不一般的难/。/</p>
+<p>琢磨了几个小时，写出了这种解法。</p>
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+#include &lt;stack&gt;
+using namespace std;
+int num = 0, n, temp;//记录序列个数
+int ans[17];
+stack&lt;int&gt; s;
+</code></pre><h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p>这里列举n = 3, 递归压栈，压满的序列应该是 3 2 1，这里有递归边界，p不能等于3，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">oper</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//可入栈</span></span><br><span class="line">	<span class="keyword">if</span> (p &lt; n) &#123;</span><br><span class="line">		s.push(p + <span class="number">1</span>);</span><br><span class="line">		<span class="comment">//printf("%d ", p);</span></span><br><span class="line">		oper(p + <span class="number">1</span>);<span class="comment">//s[1 2 3 4]</span></span><br><span class="line">		<span class="comment">//恢复数据</span></span><br><span class="line">		s.pop();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//可出栈</span></span><br><span class="line"></span><br><span class="line">于是进入压栈函数的第二个判断条件，<span class="keyword">if</span>(!s.empty()),开始把栈内的元素转移到Array[num++],</span><br><span class="line">转移元素的下面有一个递归入口，需要三步，等转移完，此时的步骤数是第六步了，可以打印了。</span><br><span class="line">```cpp</span><br><span class="line"><span class="keyword">if</span> (!s.empty()) &#123;</span><br><span class="line">		<span class="keyword">int</span> temp = s.top();<span class="comment">//取下栈顶</span></span><br><span class="line">		ans[num++] = temp;<span class="comment">//存储栈顶</span></span><br><span class="line">		s.pop();</span><br><span class="line">		<span class="keyword">if</span> (s.empty() &amp;&amp; p &gt;= n) &#123;<span class="comment">//如果栈元素全部转移到ans数组</span></span><br><span class="line">			<span class="comment">//则输出</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%d "</span>, ans[i]);</span><br><span class="line">				<span class="comment">//if (i != n - 1)	printf(" ");</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">    oper(p);<span class="comment">//p此时是n，回到取下栈顶那里</span></span><br><span class="line">打印完了之后，从刚刚的递归窗口推出，接上恢复栈的代码，同时Array数组的num下标也要恢复状态。</span><br><span class="line">```cpp</span><br><span class="line">	oper(p);<span class="comment">//p此时是n，回到取下栈顶那里</span></span><br><span class="line">		<span class="comment">//恢复数据</span></span><br><span class="line">		<span class="comment">//printf("temp = %d p = %d", temp, p);</span></span><br><span class="line">		s.push(temp);</span><br><span class="line">		num--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>每次都是从第30行的递归窗口出来</p>
+<p><strong>执行完了之后，回到了第三布，就是“3”压入栈中的时候，此时对应代码第13行，</strong><br>上面这句话很重要，一定要理解。</p>
+<p>此时的状态是满栈(明白这句的前提是要能理解递归)，然后执行第14句弹栈，栈内剩余2， 1.</p>
+<p>接下来执行第二个判断语句，准备转移 -&gt; 此时Array内元素为2，</p>
+<p>然后执行第二个递归窗口，p是等于2的，执行递归窗口，oper(2),3压入栈，</p>
+<p>再执行第一个递归窗口，oper(3 + 1),这时候p == n,执行第二个if，栈内元素3转移到Array内，</p>
+<p>Array内的元素为 2， 3，</p>
+<p>再执行第二个递归窗口-&gt;执行第二个if-&gt;栈内1转移到Array-&gt;Array内的元素为 2, 3, 1;</p>
+<p>这时候又可以打印了。输出</p>
+<p>3 2 1</p>
+<p>接下来就不分析，感觉要模拟一个输出都很不容易，能想出这种解法的人，真乃神人~！</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> num = <span class="number">0</span>, n, temp;<span class="comment">//记录序列个数</span></span><br><span class="line"><span class="keyword">int</span> ans[<span class="number">17</span>];</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">oper</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//可入栈</span></span><br><span class="line">	<span class="keyword">if</span> (p &lt; n) &#123;</span><br><span class="line">		s.push(p + <span class="number">1</span>);</span><br><span class="line">		<span class="comment">//printf("%d ", p);</span></span><br><span class="line">		oper(p + <span class="number">1</span>);<span class="comment">//s[1 2 3]</span></span><br><span class="line">		<span class="comment">//恢复数据</span></span><br><span class="line">		s.pop();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//可出栈</span></span><br><span class="line">	<span class="keyword">if</span> (!s.empty()) &#123;</span><br><span class="line">		<span class="keyword">int</span> temp = s.top();<span class="comment">//取下栈顶</span></span><br><span class="line">		ans[num++] = temp;<span class="comment">//存储栈顶</span></span><br><span class="line">		s.pop();</span><br><span class="line">		<span class="keyword">if</span> (s.empty() &amp;&amp; p &gt;= n) &#123;<span class="comment">//如果栈元素全部转移到ans数组</span></span><br><span class="line">			<span class="comment">//则输出</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%d "</span>, ans[i]);</span><br><span class="line">				<span class="comment">//if (i != n - 1)	printf(" ");</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		oper(p);<span class="comment">//p此时是n，回到取下栈顶那里</span></span><br><span class="line">		<span class="comment">//恢复数据</span></span><br><span class="line">		<span class="comment">//printf("temp = %d p = %d", temp, p);</span></span><br><span class="line">		s.push(temp);</span><br><span class="line">		num--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	s.push(<span class="number">1</span>);</span><br><span class="line">	oper(<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="输入：3"><a href="#输入：3" class="headerlink" title="输入：3"></a>输入：3</h2><p>输出：<br>3 2 1<br>2 3 1<br>2 1 3<br>1 3 2<br>1 2 3</p>
+
   
 
-        <div class="article-info info-on-right">
-          
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,285 +261,116 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/08/输出栈序列-栈的递归各种脑洞/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/08/初级dp问题-最长不下降子序列/" class="archive-article-date">
-  	<time datetime="2019-03-08T09:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/08/初级dp问题-最长不下降子序列/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">初级dp问题-最长不下降子序列</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/08/初级dp问题-最长不下降子序列/">初级dp问题-最长不下降子序列</a>
-    </h1>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/07/平均点权/" class="archive-article-date">
-  	<time datetime="2019-03-07T15:40:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/07/平均点权/">Dijkstra&amp;平均点权</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/07/C-C-小知识/" class="archive-article-date">
-  	<time datetime="2019-03-07T11:49:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/07/C-C-小知识/">C/C++小知识</a>
-    </h1>
+  <div id="SOHUCS" sid="输出栈序列-栈的递归各种脑洞"></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyu6hkPpf",
+        conf: "b404599c955dcd826d873e95270ee484"
+    });
+</script>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-gas">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/07/station/" class="archive-article-date">
-  	<time datetime="2019-03-06T16:42:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/07/station/">gas station</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/05/DFS/" class="archive-article-date">
-  	<time datetime="2019-03-05T15:24:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/05/DFS/">DFS&amp;Dijkstra</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/05/图的BFS/" class="archive-article-date">
-  	<time datetime="2019-03-04T17:27:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/05/图的BFS/">图的BFS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/04/关于图的直径/" class="archive-article-date">
-  	<time datetime="2019-03-03T16:59:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/04/关于图的直径/">关于图的直径，以及输出最长直径的根</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -503,8 +395,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
