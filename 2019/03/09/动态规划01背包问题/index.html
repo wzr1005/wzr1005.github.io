@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>动态规划01背包问题 | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="01背包问题是这样的：    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。样例：4 8     // n == 4, V == 82 3 4 5 //w[i]3 4 5 6 //c[i] 怎么解？算出c[i]/w[i]能不能行？不行，因为每种物品只有一个，先考虑单价高的可能会装不满，未必是">
+  <meta name="description" content="01背包问题是这样的：    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。样例：4 8     // n == 4, V == 82 3 4 5 //w[i]3 4 5 6 //c[i] &amp;lt;iframe src=https://api.mlwei.com/music/api/?key">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划01背包问题">
 <meta property="og:url" content="http://yoursite.com/2019/03/09/动态规划01背包问题/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
-<meta property="og:description" content="01背包问题是这样的：    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。样例：4 8     // n == 4, V == 82 3 4 5 //w[i]3 4 5 6 //c[i] 怎么解？算出c[i]/w[i]能不能行？不行，因为每种物品只有一个，先考虑单价高的可能会装不满，未必是">
+<meta property="og:description" content="01背包问题是这样的：    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。样例：4 8     // n == 4, V == 82 3 4 5 //w[i]3 4 5 6 //c[i] &amp;lt;iframe src=https://api.mlwei.com/music/api/?key">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-09T10:52:38.254Z">
+<meta property="og:updated_time" content="2019-03-09T10:57:02.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态规划01背包问题">
-<meta name="twitter:description" content="01背包问题是这样的：    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。样例：4 8     // n == 4, V == 82 3 4 5 //w[i]3 4 5 6 //c[i] 怎么解？算出c[i]/w[i]能不能行？不行，因为每种物品只有一个，先考虑单价高的可能会装不满，未必是">
+<meta name="twitter:description" content="01背包问题是这样的：    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。样例：4 8     // n == 4, V == 82 3 4 5 //w[i]3 4 5 6 //c[i] &amp;lt;iframe src=https://api.mlwei.com/music/api/?key">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
   
@@ -186,7 +186,7 @@
       
       <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
     <p>01背包问题是这样的：<br>    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。<br>样例：<br>4 8     // n == 4, V == 8<br>2 3 4 5 //w[i]<br>3 4 5 6 //c[i]</p>
-<p><iframe src="https://api.mlwei.com/music/api/?key=523077333&type=url&id=&size=hq" width="30%" height="60" frameborder="0" scrolling="no"></iframe><br>怎么解？算出c[i]/w[i]能不能行？不行，因为每种物品只有一个，先考虑单价高的可能会装不满，未必是最优的。</p>
+<p>&lt;iframe src=<a href="https://api.mlwei.com/music/api/?key=523077333&amp;cache=1&amp;type=song&amp;id=102336605&amp;size=hq" target="_blank" rel="noopener">https://api.mlwei.com/music/api/?key=523077333&amp;cache=1&amp;type=song&amp;id=102336605&amp;size=hq</a> width=”30%” height=”60” frameborder=”0” scrolling=”no”&gt;<br>怎么解？算出c[i]/w[i]能不能行？不行，因为每种物品只有一个，先考虑单价高的可能会装不满，未必是最优的。</p>
 <p>暴力枚举？那每种物品都有两种选择，do or not,因此n件物品就有2^n种情况，</p>
 <p>这里就需要用到dp[i][v]，其中i表示第几件物品，而v表示<strong>注意是当前背包容量，如果要放入物品i,v应该减去w[i]，容量变少</strong><br>dp[i][j] 边界都初始化为0，从1，1开始。dp[i][v]表示前i件物品恰好装入容量为v的背包中所能获得的最大值/?存疑</p>
 <p>我们考虑第i件物品的时候，就两种策略：放呢，还是不放呢？</p>
