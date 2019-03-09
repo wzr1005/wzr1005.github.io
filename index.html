@@ -261,31 +261,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
-    <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805446102073344" target="_blank" rel="noopener">1040 Longest Symmetric String </a><br>1040 Longest Symmetric String （25 分）</p>
-<p>Given a string, you are supposed to output the length of the longest symmetric sub-string. For example, given Is PAT&amp;TAP symmetric?, the longest symmetric sub-string is s PAT&amp;TAP s, hence you must output 11.<br>Input Specification:</p>
-<p>Each input file contains one test case which gives a non-empty string of length no more than 1000.<br>Output Specification:</p>
-<p>For each test case, simply print the maximum length in a line.<br>Sample Input:</p>
-<p>Is PAT&amp;TAP symmetric?</p>
-<p>Sample Output:</p>
-<p>11</p>
-<hr>
-<p>#include <cstdio></cstdio></p>
-<p>#include <iostream></iostream></p>
-<p>#include <string></string></p>
-<p>#include <map></map></p>
-<p>#include <set></set></p>
-<p>#include <cstring></cstring></p>
-<p>#include <vector></vector></p>
-<p>#include <sstream></sstream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <cmath></cmath></p>
-<p>#include &lt;ctype.h&gt;<br>using namespace std;<br>const int maxn = 1010;<br>char s[maxn];<br>int dp[maxn][maxn];<br>int main() {<br>    scanf(“%[^\n]”, s);<br>    int len = strlen(s), ans = 1;<br>    memset(dp, 0, sizeof(dp));<br>    for (int i = 0; i &lt; len; i++) {<br>        dp[i][i] = 1;<br>        if (i &lt; len - 1) {<br>            if (s[i] == s[i + 1]) {<br>                dp[i][i + 1] = 1;<br>                ans = 2;<br>            }<br>        }<br>    }<br>    //dp[i][j]指的是 以i为首，j为尾的子串是否是回文串<br>    //初始化的时候，dp[i][i]都是1，肯定的，如果 i i+1相等，那么以i为首以j为尾dp[i][i+1]就是回文串了<br>    for (int L = 3; L &lt;= len; L++) {<br>        for (int i = 0; i + L - 1 &lt; len; i++) {//i是左端点， i + L - 1是右端点，当i = 0，右端点是 L-1<br>            int j = i + L - 1;<br>            if (s[i] == s[j] &amp;&amp; dp[i + 1][j - 1] == 1) {<br>                dp[i][j] = 1;<br>                //范围不断扩大，两边同时缩减，通过dp可以很轻松的判断里面以i+1 j-1首尾的是不是子串，是回文串就可以省很多步骤<br>                ans = L;<br>            }<br>        }<br>    }<br>    printf(“%d”, ans);<br>    return 0;<br>}</p>
-
-  
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805446102073344" target="_blank" rel="noopener">1040 Longest Symmetric String </a><br>1040 Longest Symmetric String （25 分）<br>
+        
+          <a class="article-more-a" href="/2019/03/08/最长回文子串/#more">more >></a>
+        
+      
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
