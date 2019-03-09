@@ -17,7 +17,7 @@
 <meta property="og:description" content="一个人在群里问了一个好像很基础的题:从1到n压入栈，如何写出打印所有合法出栈序列的code。 当时楞了一下，联想到入栈是先序序列，是不是递归求中序列？不对， 是不是跟全排列有关？好像多此一举，另外全排列的解法不见得会，我估计很多人都不会，这算很基础的题，但可不一般的难/。/ 琢磨了几个小时，写出了这种解法。 #include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorith">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/08/5c8262218f5de.jpg">
-<meta property="og:updated_time" content="2019-03-08T13:23:15.488Z">
+<meta property="og:updated_time" content="2019-03-08T13:40:23.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="输出栈序列,栈的递归各种脑洞">
 <meta name="twitter:description" content="一个人在群里问了一个好像很基础的题:从1到n压入栈，如何写出打印所有合法出栈序列的code。 当时楞了一下，联想到入栈是先序序列，是不是递归求中序列？不对， 是不是跟全排列有关？好像多此一举，另外全排列的解法不见得会，我估计很多人都不会，这算很基础的题，但可不一般的难/。/ 琢磨了几个小时，写出了这种解法。 #include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorith">
@@ -210,7 +210,7 @@ stack&lt;int&gt; s;
 <p>Array内的元素为 2， 3，</p>
 <p>再执行第二个递归窗口-&gt;执行第二个if-&gt;栈内1转移到Array-&gt;Array内的元素为 2, 3, 1;</p>
 <p>这时候又可以打印了。输出</p>
-<p>3 2 1</p>
+<p>2 3 1</p>
 <p>接下来就不分析，感觉要模拟一个输出都很不容易，能想出这种解法的人，真乃神人~！</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> num = <span class="number">0</span>, n, temp;<span class="comment">//记录序列个数</span></span><br><span class="line"><span class="keyword">int</span> ans[<span class="number">17</span>];</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">oper</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//可入栈</span></span><br><span class="line">	<span class="keyword">if</span> (p &lt; n) &#123;</span><br><span class="line">		s.push(p + <span class="number">1</span>);</span><br><span class="line">		<span class="comment">//printf("%d ", p);</span></span><br><span class="line">		oper(p + <span class="number">1</span>);<span class="comment">//s[1 2 3]</span></span><br><span class="line">		<span class="comment">//恢复数据</span></span><br><span class="line">		s.pop();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//可出栈</span></span><br><span class="line">	<span class="keyword">if</span> (!s.empty()) &#123;</span><br><span class="line">		<span class="keyword">int</span> temp = s.top();<span class="comment">//取下栈顶</span></span><br><span class="line">		ans[num++] = temp;<span class="comment">//存储栈顶</span></span><br><span class="line">		s.pop();</span><br><span class="line">		<span class="keyword">if</span> (s.empty() &amp;&amp; p &gt;= n) &#123;<span class="comment">//如果栈元素全部转移到ans数组</span></span><br><span class="line">			<span class="comment">//则输出</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%d "</span>, ans[i]);</span><br><span class="line">				<span class="comment">//if (i != n - 1)	printf(" ");</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		oper(p);<span class="comment">//p此时是n，回到取下栈顶那里</span></span><br><span class="line">		<span class="comment">//恢复数据</span></span><br><span class="line">		<span class="comment">//printf("temp = %d p = %d", temp, p);</span></span><br><span class="line">		s.push(temp);</span><br><span class="line">		num--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	s.push(<span class="number">1</span>);</span><br><span class="line">	oper(<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="输入：3"><a href="#输入：3" class="headerlink" title="输入：3"></a>输入：3</h2><p>输出：<br>3 2 1<br>2 3 1<br>2 1 3<br>1 3 2<br>1 2 3</p>
@@ -327,6 +327,15 @@ stack&lt;int&gt; s;
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/03/08/最长回文子串/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          最长回文子串
+        
+      </div>
+    </a>
   
   
     <a href="/2019/03/08/初级dp问题-最长不下降子序列/" id="article-nav-older" class="article-nav-link-wrap">
@@ -484,15 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
               <li class="article-tag-list-item">

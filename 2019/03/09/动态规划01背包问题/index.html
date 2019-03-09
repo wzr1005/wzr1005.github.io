@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | wallacezh&#39;s blog</title>
+  <title>动态规划01背包问题 | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wallacezh&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/page/2/index.html">
+  <meta name="description" content="01背包问题是这样的：    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。样例：4 8     // n == 4, V == 82 3 4 5 //w[i]3 4 5 6 //c[i] 怎么解？算出c[i]/w[i]能不能行？不行，因为每种物品只有一个，先考虑单价高的可能会装不满，未必是">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划01背包问题">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/动态规划01背包问题/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
+<meta property="og:description" content="01背包问题是这样的：    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。样例：4 8     // n == 4, V == 82 3 4 5 //w[i]3 4 5 6 //c[i] 怎么解？算出c[i]/w[i]能不能行？不行，因为每种物品只有一个，先考虑单价高的可能会装不满，未必是">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-09T10:22:22.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wallacezh&#39;s blog">
+<meta name="twitter:title" content="动态规划01背包问题">
+<meta name="twitter:description" content="01背包问题是这样的：    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。样例：4 8     // n == 4, V == 82 3 4 5 //w[i]3 4 5 6 //c[i] 怎么解？算出c[i]/w[i]能不能行？不行，因为每种物品只有一个，先考虑单价高的可能会装不满，未必是">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
   
@@ -159,36 +164,178 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-动态规划01背包问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-emergency">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/28/Dijkstra/" class="archive-article-date">
-  	<time datetime="2019-02-28T15:53:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/28/Dijkstra/">Dijkstra</a>
+    <h1 class="article-title" itemprop="name">
+      动态规划01背包问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/09/动态规划01背包问题/" class="archive-article-date">
+  	<time datetime="2019-03-09T07:41:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
+    <p>01背包问题是这样的：<br>    有n件物品，每件物品的重量为w[i]，价值为c[i],现有一个容量为V的背包，问如何选取物品放入背包，使得背包内物品的总价值最大。其中每个物品都只有一件。<br>样例：<br>4 8     // n == 4, V == 8<br>2 3 4 5 //w[i]<br>3 4 5 6 //c[i]</p>
+<p>怎么解？算出c[i]/w[i]能不能行？不行，因为每种物品只有一个，先考虑单价高的可能会装不满，未必是最优的。</p>
+<p>暴力枚举？那每种物品都有两种选择，do or not,因此n件物品就有2^n种情况，</p>
+<p>这里就需要用到dp[i][v]，其中i表示第几件物品，而v表示<strong>注意是当前背包容量，如果要放入物品i,v应该减去w[i]，容量变少</strong><br>dp[i][j] 边界都初始化为0，从1，1开始。dp[i][v]表示前i件物品恰好装入容量为v的背包中所能获得的最大值/?存疑</p>
+<p>我们考虑第i件物品的时候，就两种策略：放呢，还是不放呢？</p>
+<ol>
+<li><p>不放第i件物品，那么问题转化成为前i-1件物品恰好装入余量为v的背包所能获得的最大价值</p>
+<p> dp[i-1][v]</p>
+</li>
+<li><p>放第i件物品，那么问题转化为前i-1件物品恰好装入余量为v-w[i]所能获得的最大值</p>
+<p> dp[i][v] = max{dp[i-1][v], dp[i-1][v-w[i]] + c[i]};<br>这个时候需要v &gt; w[i]才行</p>
+</li>
+</ol>
+<hr>
+<pre><code>4 8     // n == 4, V == 8
+2 3 4 5 //w[i]
+3 4 5 6 //c[i]
+</code></pre><p>初始化：<br>|   i/j|   0   |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |<br>| :—:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|:—–:|<br>|  0   |   0   |    0  |   0   |    0  |  0    |   0   |    0  |    0  | 0     |<br>|  1   |   0   |       |       |       |       |       |       |       |       |<br>|  2   |   0   |       |       |       |       |       |       |       |       |<br>|  3   |   0   |       |       |       |       |       |       |       |       |</p>
+<h2 id="4-0"><a href="#4-0" class="headerlink" title="|  4   |   0   |       |       |       |       |       |       |       |       |"></a>|  4   |   0   |       |       |       |       |       |       |       |       |</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= V; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (j &lt; w[i]) &#123;<span class="comment">//包放不进， 就不放，继承没放的状态</span></span><br><span class="line">				dp[i][j] = dp[i - <span class="number">1</span>][j];<span class="comment">//j容量保持不变</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="comment">//能装</span></span><br><span class="line">				<span class="keyword">if</span> (dp[i - <span class="number">1</span>][j] &gt; dp[i - <span class="number">1</span>][j - w[i]] + c[i]) &#123;</span><br><span class="line">					<span class="comment">//不如不装,继承</span></span><br><span class="line">					dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line">					dp[i][j] = dp[i - <span class="number">1</span>][j - w[i]] + c[i];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>然后一行一行的填表</p>
+<ol>
+<li><p>如 i = 1, j = 1, w[1] = 2, c[1] = 3,有j &lt; w[1]放不下，故dp[1][1] = dp[1-1][1] = 0;<br>即选择的是1不放。<br>i = 1, j = 2, w[1] = 2, c[1] = 3,   有 j &gt;= w[1]可以放下,则:</p>
+<pre><code>dp[1][2] = max(dp[1-1][2], dp[1-1][2-w[1]] + c[1])
+//[1-1]表示放入物品i之前的状态，在放入1之后容量为2-w[1] = 2 - 2 = 0;
+</code></pre><p>dp[1][2] = max(0, dp[0][0] + 3) = 3;<br>..<br>..<br>第一行都是3</p>
+</li>
+<li><p>i = 2,w[2] = 3, j = 1..2..装不下， 等于dp[i-1][j]也就是<strong>装不下就等于上一行</strong>，<br>j = 3,装还是不装呢，max(dp[i-1][j], dp[i-1][j-w[i]] + c[i]),<br><strong>想象出门整理行李的时候</strong><br>即max(上一行不放第i的状态,即不腾出空间，舍去i物体获得的价值，   上一行占用了与w[i]等质量物体的最大状态值，再加上c[i]，相当于腾出w[i]的空间，并把腾出后的空间整理好==最大状态值，再把c[i]加入，形成的新的状态值。)</p>
+</li>
+</ol>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">i/v</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">*0</td>
+<td style="text-align:center">** 3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3***</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4-3= 1</td>
+<td style="text-align:center">5-3=2**3+4 = 7</td>
+<td style="text-align:center">7-3=4***</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+</tr>
+</tbody>
+</table>
+<p>怎么样，是不是很容易理解了，当然了，这代码写成了上面那样是为了方便理解，还可以写成这样</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= V; j++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(j &lt; w[i])&#123;</span><br><span class="line">      d[i][j] = d[i<span class="number">-1</span>][j];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      dp[i][j] = max(dp[i<span class="number">-1</span>][j], d[i<span class="number">-1</span>][j-w[i]] + c[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>甚至还可以写成这样，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> j = V; j &gt;= w[i]; j--)&#123;</span><br><span class="line">    dp[v] = max(dp[v], d[v-w[i]] + c[i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上的代码，最终输出结果就是dp[n][V];<br>仔细看了解析，再理解上面的代码就不难， 空间压缩到了一维的量。</p>
+
+  
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,338 +347,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/09/动态规划01背包问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/26/科学上网的教程/" class="archive-article-date">
-  	<time datetime="2019-02-26T08:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/08/最长回文子串/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">最长回文子串</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/26/科学上网的教程/">科学上网的教程，2刀一个月（可合租）</a>
-    </h1>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">科学上网</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/25/Java的前几个步骤/" class="archive-article-date">
-  	<time datetime="2019-02-25T11:49:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/25/Java的前几个步骤/">Java的前几个步骤</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/25/第一天/" class="archive-article-date">
-  	<time datetime="2019-02-24T20:15:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/25/第一天/">英语发音</a>
-    </h1>
+  <div id="SOHUCS" sid="动态规划01背包问题"></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyu6hkPpf",
+        conf: "b404599c955dcd826d873e95270ee484"
+    });
+</script>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/25/起风了/" class="archive-article-date">
-  	<time datetime="2019-02-24T19:36:56.390Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/25/起风了/">起风了 唯有努力生存</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/24/学习github/" class="archive-article-date">
-  	<time datetime="2019-02-24T06:48:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/24/学习github/">学习github</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/24/较为有用的Atom快捷键/" class="archive-article-date">
-  	<time datetime="2019-02-23T16:58:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/24/较为有用的Atom快捷键/">较为有用的Atom快捷键</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">atom</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/24/关于hexo博客添加背景音乐的一些问题方案/" class="archive-article-date">
-  	<time datetime="2019-02-23T16:56:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/24/关于hexo博客添加背景音乐的一些问题方案/">关于hexo博客添加背景音乐的一些问题方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/23/搭建博客遇到的问题/" class="archive-article-date">
-  	<time datetime="2019-02-23T09:26:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/23/搭建博客遇到的问题/">搭建博客遇到的问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -557,8 +481,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
