@@ -172,7 +172,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/anaconda搭建tensorflow遇到的坑/">anaconda搭建tensorflow遇到的坑</a>
+      <a class="article-title" href="/2019/03/12/anaconda搭建tensorflow遇到的坑/">Anaconda搭建tensorflow遇到的坑</a>
     </h1>
   
 
@@ -185,22 +185,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.loli.net/2019/03/12/5c87844f38684.jpeg"></p>
-<p>安装好了anaconda之后，在cmd输入conda命令识别不了，是因为没有配置环境，</p>
-<p>在系统变量里面的path新建两个变量，一个是anaconda3的路径，一个是anaconda3里面scrips的路径。</p>
-<p>重新打开cmd就可以安装模块了。</p>
-<p>网上的指令有些没用的，因为我的python3.7。</p>
-<p>如果直接在cmd键入 pip install tensorflow,找到的版本都没 3.7的</p>
-<p>所以直接在这个<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#tensorflow" target="_blank" rel="noopener">链接</a></p>
-<p>看图</p>
-<p><img src="https://i.loli.net/2019/03/12/5c876f5bc2b61.jpg"></p>
+        <p><img src="https://i.loli.net/2019/03/12/5c87844f38684.jpeg"><br>
         
           <a class="article-more-a" href="/2019/03/12/anaconda搭建tensorflow遇到的坑/#more">more >></a>
         
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -264,7 +256,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/intellij-IDEA破解到2100年/">intellij IDEA2018.3.4破解到2100年</a>
+      <a class="article-title" href="/2019/03/12/intellij-IDEA破解到2100年/">Intellij IDEA2018.3.4破解到2100年</a>
     </h1>
   
 
@@ -278,7 +270,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>##首先下载<a href="https://pan.baidu.com/s/1i7M7QjLtoptbqEF35jEZgA" target="_blank" rel="noopener">破解文件</a><br>提取码：je8v</p>
-<p>下载好了之后移到到C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\bin 具体看你自己安装的路径，如图<br><img src="https://i.loli.net/2019/03/12/5c873a84ae6b9.jpg"></p>
+<p>下载好了之后移到到C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\bin 具体看你自己安装的路径，如图</p>
         
           <a class="article-more-a" href="/2019/03/12/intellij-IDEA破解到2100年/#more">more >></a>
         
@@ -427,7 +419,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/10/new-journey/">new journey</a>
+      <a class="article-title" href="/2019/03/10/new-journey/">New Journey</a>
     </h1>
   
 
@@ -746,7 +738,7 @@ stack&lt;int&gt; s;
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/08/初级dp问题-最长不下降子序列/">初级dp问题-最长不下降子序列</a>
+      <a class="article-title" href="/2019/03/08/初级dp问题-最长不下降子序列/">初级Dp问题-最长不下降子序列</a>
     </h1>
   
 
@@ -1000,9 +992,411 @@ stack&lt;int&gt; s;
 
 
   
+    <article id="gas-station" class="article article-type-gas  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/07/station/">Gas Station</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/07/station/" class="archive-article-date">
+  	<time datetime="2019-03-06T16:42:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805396953219072" target="_blank" rel="noopener">1072 Gas Station</a><br>这道题读懂题意也是不简单，恨我英语渣啊。。。怪不得说英语是计算机的第二语言，什么时候我的英语才能上一个台阶~！</p>
+<p>题目要求在n个住户之间建一个加油站，提供m个加油站的备选位置，<strong>要求是加油站离住户尽可能远，且不超出他的service range</strong></p>
+<p>这里用的是Dijkstra对每个加油站求一次，时间复杂度上面应该比弗洛伊德好。</p>
+<p>这里有以下坑点：</p>
+<ol>
+<li>可能越界。const int maxn 应该为 &gt; n + m,取1020比较安全，反正开数组不用钱</li>
+<li>是最短距离尽可能远的位置，不是尽可能近</li>
+<li>命名上面自己思路要清晰，不然很多变量比较来比较去的，不仔细很容易犯错，而且需要一些浮点与整形的比较</li>
+</ol>
+<p>另外，四舍五入真的是玄学，不知道什么时候可以自动转，什么时候需要自己求<br>
+        
+          <a class="article-more-a" href="/2019/03/07/station/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/07/station/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-DFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/05/DFS/">DFS&amp;Dijkstra</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/05/DFS/" class="archive-article-date">
+  	<time datetime="2019-03-05T15:24:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805489282433024" target="_blank" rel="noopener">1018 Public Bike Management</a><br>这道题先用Dijkstra求出基地到目的地点的最佳路径，用vector数组pre[maxn]存储所有途径路径最短的结点，</p>
+<p>再用DFS遍历，在遍历过程中，顺便比较出，携带车俩最少的路线，以及输出最小携带车俩数和最小剩余车俩</p>
+<p>为什么会有剩余车俩呢，因为假设倒数第二个站点有100俩车，最后一个站只缺一辆车，那么就多了99辆车，剩余的99辆车就需要带回基地。</p>
+<p>这道题的难点就在意如何写这个DFS.</p>
+<p>算法笔记这本书有个套路，关于Dijkstra只要输出路径，就需要用vector数组pre[maxn]存储所有路径的结点，</p>
+<p>例如 u -&gt; v<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(d[v] &gt; d[u] + G[u][v])&#123;</span><br><span class="line">  pre[v].push_back(u);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2019/03/05/DFS/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/05/DFS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-图的BFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/05/图的BFS/">图的BFS</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/05/图的BFS/" class="archive-article-date">
+  	<time datetime="2019-03-04T17:27:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大致题意是给出n个用户的关注列表，英文不好的人别理解错了，然后假设某个用户发一条微博，最多会有多少转发量，微博辐射力至多传递L层</p>
+<p>就相当于在一个图中，选取一个点BFSL层，计算结点个数。</p>
+<p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805392092020736" target="_blank" rel="noopener">1076 Forwards on Weibo </a><br>
+        
+          <a class="article-more-a" href="/2019/03/05/图的BFS/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/05/图的BFS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于图的直径" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/04/关于图的直径/">关于图的直径，以及输出最长直径的根</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/04/关于图的直径/" class="archive-article-date">
+  	<time datetime="2019-03-03T16:59:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一道很有意思的算法题，里面有一个证明，还有一些坑：</p>
+<ul>
+<li>一个无环连通图的直径可以这样求解：先从任意一点A出发，到达离此结点最远的结点B，，再从B出发所能到达的最深的结点的长度，即是图的直径。</li>
+<li>直径不止一条</li>
+<li>首尾相同的结点对，可能形成多条路径。</li>
+</ul>
+<p>我被第三点卡了很久，后面三个case一直过不去。。<br>这个代码用的是并查集，求最远路径用的是DFS效率没有BFS高，建议用BFS试试。<br>
+        
+          <a class="article-more-a" href="/2019/03/04/关于图的直径/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/04/关于图的直径/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="emergency-Dijkstra" class="article article-type-emergency  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/28/Dijkstra/">Dijkstra</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/28/Dijkstra/" class="archive-article-date">
+  	<time datetime="2019-02-28T15:53:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一道甲级题，题目如下"><a href="#一道甲级题，题目如下" class="headerlink" title="一道甲级题，题目如下"></a>一道甲级题，题目如下</h2><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805523835109376" target="_blank" rel="noopener">1003 Emergency （25 分）</a><br>
+        
+          <a class="article-more-a" href="/2019/02/28/Dijkstra/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/28/Dijkstra/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1143,15 +1537,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
               <li class="article-tag-list-item">

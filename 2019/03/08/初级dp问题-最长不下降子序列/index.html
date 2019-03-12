@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>初级dp问题-最长不下降子序列 | wallacezh&#39;s blog</title>
+  <title>初级Dp问题-最长不下降子序列 | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1045 Favorite Color Stripe 学好计算机，英语一定要好，我觉得英语这门语言不像法语精确，虽然汉语也不精确。。。看题目要仔细，英语基础要好。 这道题总体思路是，把她喜欢的颜色编一下号，然后把她所有的颜色映射成编号，写入A[num++] 然后当每个位置i,从j属于0~i-1里面找到的最大非递减字串，且该位置j的颜色映射A[j] &amp;lt;= A[i] 12345678910int">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初级dp问题-最长不下降子序列">
+<meta property="og:title" content="初级Dp问题-最长不下降子序列">
 <meta property="og:url" content="http://yoursite.com/2019/03/08/初级dp问题-最长不下降子序列/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
 <meta property="og:description" content="1045 Favorite Color Stripe 学好计算机，英语一定要好，我觉得英语这门语言不像法语精确，虽然汉语也不精确。。。看题目要仔细，英语基础要好。 这道题总体思路是，把她喜欢的颜色编一下号，然后把她所有的颜色映射成编号，写入A[num++] 然后当每个位置i,从j属于0~i-1里面找到的最大非递减字串，且该位置j的颜色映射A[j] &amp;lt;= A[i] 12345678910int">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-03-08T13:17:14.926Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初级dp问题-最长不下降子序列">
+<meta name="twitter:title" content="初级Dp问题-最长不下降子序列">
 <meta name="twitter:description" content="1045 Favorite Color Stripe 学好计算机，英语一定要好，我觉得英语这门语言不像法语精确，虽然汉语也不精确。。。看题目要仔细，英语基础要好。 这道题总体思路是，把她喜欢的颜色编一下号，然后把她所有的颜色映射成编号，写入A[num++] 然后当每个位置i,从j属于0~i-1里面找到的最大非递减字串，且该位置j的颜色映射A[j] &amp;lt;= A[i] 12345678910int">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
@@ -175,7 +175,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      初级dp问题-最长不下降子序列
+      初级Dp问题-最长不下降子序列
     </h1>
   
 
@@ -350,6 +350,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#理解了上面的话，这种题目就是小case了"><span class="toc-number">1.</span> <span class="toc-text">理解了上面的话，这种题目就是小case了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7"><span class="toc-number">2.</span> <span class="toc-text">7</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -360,19 +373,25 @@
   
 
   
-  <div id="SOHUCS" sid="初级dp问题-最长不下降子序列"></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyu6hkPpf",
-        conf: "b404599c955dcd826d873e95270ee484"
-    });
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2019/03/08/初级dp问题-最长不下降子序列/",
+  owner: 'wallacezh',
+  repo: 'https://github.com/wallacezh/wallacezh.github.io.git',
+  oauth: {
+    client_id: '8f3a5336c7cd17cf678e',
+    client_secret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
+  },
+})
+gitment.render('gitment-ctn')
 </script>
-
-  
-
-  
-
   
 
 
@@ -512,15 +531,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
               <li class="article-tag-list-item">

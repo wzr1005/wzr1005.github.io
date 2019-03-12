@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/23/5c716b942fcf5.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/23/5c716b3e9da20.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/24/5c716e4037573.png">
-<meta property="og:updated_time" content="2019-03-12T18:51:11.615Z">
+<meta property="og:updated_time" content="2019-03-12T19:10:07.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客遇到的问题">
 <meta name="twitter:description" content="分类插件，tags插件，四个身位">
@@ -263,6 +263,7 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
 <p>不行就这个：</p>
 <p><a href="http://b.bshare.cn/barCode?site=weixin&amp;url=" target="_blank" rel="noopener">http://b.bshare.cn/barCode?site=weixin&amp;url=</a></p>
 <p>ctrl + shift 全局搜索</p>
+<p>文章显示目录 在主题里的config的toc的值设置为2</p>
 
   
 
@@ -386,7 +387,7 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          关于hexo博客添加背景音乐的一些问题方案
+          关于Hexo博客添加背景音乐的一些问题方案
         
       </div>
     </a>
@@ -408,6 +409,19 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#根据端口杀死进程"><span class="toc-number">1.</span> <span class="toc-text">根据端口杀死进程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生成所有文件，而不是只是监测改动文件"><span class="toc-number">2.</span> <span class="toc-text">生成所有文件，而不是只是监测改动文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建好了，一直404"><span class="toc-number">3.</span> <span class="toc-text">搭建好了，一直404</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#博客一篇文章都没有"><span class="toc-number">4.</span> <span class="toc-text">博客一篇文章都没有</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -418,19 +432,25 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
   
 
   
-  <div id="SOHUCS" sid="搭建博客遇到的问题"></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyu6hkPpf",
-        conf: "b404599c955dcd826d873e95270ee484"
-    });
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2019/02/23/搭建博客遇到的问题/",
+  owner: 'wallacezh',
+  repo: 'https://github.com/wallacezh/wallacezh.github.io.git',
+  oauth: {
+    client_id: '8f3a5336c7cd17cf678e',
+    client_secret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
+  },
+})
+gitment.render('gitment-ctn')
 </script>
-
-  
-
-  
-
   
 
 
@@ -570,15 +590,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
               <li class="article-tag-list-item">
