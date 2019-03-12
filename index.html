@@ -274,7 +274,9 @@
       
       <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
     <p>##首先下载<a href="https://pan.baidu.com/s/1i7M7QjLtoptbqEF35jEZgA" target="_blank" rel="noopener">破解文件</a><br>提取码：je8v</p>
-<p>下载好了之后移到到C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\bin 具体看你自己安装的路径，如图<br><img src="https://i.loli.net/2019/03/12/5c873a84ae6b9.jpg"><br><!-- 查看全部 --><br>用文本编辑器打开框框中的idea.exe.vmoptions和idea64.exe.vmoptions文件<br>在末尾加上-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\bin\JetbrainsIdesCrack.jar</p>
+<p>下载好了之后移到到C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\bin 具体看你自己安装的路径，如图<br><img src="https://i.loli.net/2019/03/12/5c873a84ae6b9.jpg"></p>
+<!-- 查看全部 -->
+<p>用文本编辑器打开框框中的idea.exe.vmoptions和idea64.exe.vmoptions文件<br>在末尾加上-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\bin\JetbrainsIdesCrack.jar</p>
 <p>路径和文件名要和自己的吻合。</p>
 <h2 id="然后打开idea界面"><a href="#然后打开idea界面" class="headerlink" title="然后打开idea界面"></a>然后打开idea界面</h2><p><img src="https://i.loli.net/2019/03/12/5c873c8662911.jpg"></p>
 <p>然后复制这段</p>
@@ -357,22 +359,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
-    <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805491530579968" target="_blank" rel="noopener">1017 Queueing at Bank</a><br><img src="https://i.loli.net/2019/03/12/5c8692f018de3.jpeg"><br>看到这种题不用慌，这不是操作系统里面废实现，但代码写起来还是有点别扭，原因还是代码写得少，</p>
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805491530579968" target="_blank" rel="noopener">1017 Queueing at Bank</a><br><img src="https://i.loli.net/2019/03/12/5c8692f018de3.jpeg"><br>看到这种题不用慌，这不是操作系统里面废实现，但代码写起来还是有点别扭，原因还是代码写得少，</p>
 <p>这种题目很考验基本功，还有耐心，如果写多了，这种题也不会太难，但我今天还是写的蛮慢的，所以记录一下，</p>
 <p>这里先解释一下为什么要用endTime数组呢，<strong>因为窗口可能有多个，每个初始化为上班时间8点，</strong></p>
 <p>这个遍历的结果就是看哪个窗口能早一点结束，用idx比较</p>
 <p>然后再与经过sort排序的custom（到达时间由早到晚）比较大小，</p>
 <p>如果顾客来早了(comTime &lt; endTime[idx]，就用tottime统计起来，<strong>这个值就是最后要计算的</strong></p>
 <p>如果顾客来的时候窗口已经空闲，那么<strong>直接更新这个窗口</strong>endTime[idx] = Custom[i].comTime + Custom[i].serveTime;</p>
-<p><code>`</code>cpp</p>
-<p>#include <cstdio></cstdio></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector><br>using namespace std;<br>const int maxn = 10010;<br>const int INF = 1000000000;<br>struct Customer {<br>    int comTime, serveTime;<br>}newCustom;<br>int convert(int h, int m, int s) {<br>    return h <em> 3600 + m </em> 60 + s;<br>}<br>vector<customer> Custom;<br>bool cmp(Customer a, Customer b) {<br>    return a.comTime &lt; b.comTime;<br>}<br>int main() {<br>    int n, c;//客户数 窗口数<br>    int comTime = convert(8, 0, 0);<br>    int edTime = convert(17, 0, 0);<br>    scanf(“%d%d”, &amp;n, &amp;c);<br>    int hh, mm, ss, serveTime;<br>    int totTime = 0;<br>    int endTime[maxn];<br>    for (int i = 0; i &lt; c; i++)    endTime[i] = comTime;<br>    for (int i = 0; i &lt; n; i++) {<br>        scanf(“%d:%d:%d %d”, &amp;hh, &amp;mm, &amp;ss, &amp;serveTime);<br>        int stTime = convert(hh, mm, ss);<br>        if (stTime &gt; edTime)    continue;<br>        if (serveTime &gt; 60)    serveTime = 60;<br>        newCustom.comTime = convert(hh, mm, ss);<br>        newCustom.serveTime = serveTime * 60;<br>        Custom.push_back(newCustom);<br>    }<br>    sort(Custom.begin(), Custom.end(), cmp);<br>    for (int i = 0; i &lt; Custom.size(); i++) {<br>        int idx = -1, minEndTime = INF;<br>        for (int j = 0; j &lt; c; j++) {<br>            if (endTime[j] &lt; minEndTime) {<br>                idx = j;//为什么要用endTime数组呢，因为窗口可能有多个，每个初始化为上班时间8点，<br>                //这个遍历的结果就是看哪个窗口能早一点结束，用idx比较<br>                //然后再与经过sort排序的custom（到达时间由早到晚）比较大小，<br>                //如果顾客来早了(comTime &lt; endTime[idx]，就用tottime统计起来，<br>                //如果顾客来的时候窗口已经空闲，那么直接更新这个窗口endTime[idx] = Custom[i].comTime + Custom[i].serveTime;<br>                minEndTime = endTime[j];<br>            }//找到一个最早结束的窗口<br>        }<br>        if (endTime[idx] &lt;= Custom[i].comTime) {<br>            endTime[idx] = Custom[i].serveTime + Custom[i].comTime;<br>        }<br>        else {<br>            totTime += endTime[idx] - Custom[i].comTime;<br>            endTime[idx] += Custom[i].serveTime;//一直在等，则这个窗口的结束时间直接加上这个顾客的服务时间，<br>        }<br>    }<br>    if (n == 0)    printf(“0.0”);<br>    else printf(“%.1f”, totTime / 60.0 / Custom.size());<br>    return 0;<br>}</customer></vector></p>
-<hr>
-<p>这种题做完了别那么快过，自己多码几遍，学习没有捷径，唯有熟练，另外多记录多想。</p>
-
-  
+        
+          <a class="article-more-a" href="/2019/03/12/Queueing-at-Bank银行排队的问题/#more">more >></a>
+        
+      
 
       
     </div>

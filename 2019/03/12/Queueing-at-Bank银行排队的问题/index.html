@@ -17,7 +17,7 @@
 <meta property="og:description" content="1017 Queueing at Bank看到这种题不用慌，这不是操作系统里面废实现，但代码写起来还是有点别扭，原因还是代码写得少， 这种题目很考验基本功，还有耐心，如果写多了，这种题也不会太难，但我今天还是写的蛮慢的，所以记录一下， 这里先解释一下为什么要用endTime数组呢，因为窗口可能有多个，每个初始化为上班时间8点， 这个遍历的结果就是看哪个窗口能早一点结束，用idx比较 然后再与经过s">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/12/5c8692f018de3.jpeg">
-<meta property="og:updated_time" content="2019-03-11T17:01:06.646Z">
+<meta property="og:updated_time" content="2019-03-12T09:25:15.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Queueing at Bank银行排队的问题">
 <meta name="twitter:description" content="1017 Queueing at Bank看到这种题不用慌，这不是操作系统里面废实现，但代码写起来还是有点别扭，原因还是代码写得少， 这种题目很考验基本功，还有耐心，如果写多了，这种题也不会太难，但我今天还是写的蛮慢的，所以记录一下， 这里先解释一下为什么要用endTime数组呢，因为窗口可能有多个，每个初始化为上班时间8点， 这个遍历的结果就是看哪个窗口能早一点结束，用idx比较 然后再与经过s">
@@ -194,6 +194,7 @@
 <p>然后再与经过sort排序的custom（到达时间由早到晚）比较大小，</p>
 <p>如果顾客来早了(comTime &lt; endTime[idx]，就用tottime统计起来，<strong>这个值就是最后要计算的</strong></p>
 <p>如果顾客来的时候窗口已经空闲，那么<strong>直接更新这个窗口</strong>endTime[idx] = Custom[i].comTime + Custom[i].serveTime;</p>
+<a id="more"></a>
 <p><code>`</code>cpp</p>
 <p>#include <cstdio></cstdio></p>
 <p>#include <algorithm></algorithm></p>
