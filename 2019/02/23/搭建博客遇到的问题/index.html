@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/23/5c716b942fcf5.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/23/5c716b3e9da20.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/24/5c716e4037573.png">
-<meta property="og:updated_time" content="2019-03-12T21:01:30.564Z">
+<meta property="og:updated_time" content="2019-03-12T21:10:07.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客遇到的问题">
 <meta name="twitter:description" content="分类插件，tags插件，四个身位">
@@ -266,6 +266,9 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
 <p>文章显示目录 在主题里的config的toc的值设置为2</p>
 <p><!--页面点击小红心--> front.ejs最后加上</p>
 <script type="text/javascript" src="/love.js"></script>
+
+<p>然后在yilia/source 增加一个love.js</p>
+<p>!function(e,t,a){function n(){c(“.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: ‘’;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}”),o(),r()}function r(){for(var e=0;e&lt;d.length;e++)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y–,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText=”left:”+d[e].x+”px;top:”+d[e].y+”px;opacity:”+d[e].alpha+”;transform:scale(“+d[e].scale+”,”+d[e].scale+”) rotate(45deg);background:”+d[e].color+”;z-index:99999”);requestAnimationFrame(r)}function o(){var t=”function”==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e){t&amp;&amp;t(),i(e)}}function i(e){var a=t.createElement(“div”);a.className=”heart”,d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement(“style”);a.type=”text/css”;try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName(“head”)[0].appendChild(a)}function s(){return”rgb(“+<del>(255*Math.random())+”,”+</del>(255<em>Math.random())+”,”+~~(255</em>Math.random())+”)”}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);</p>
 
   
 
@@ -568,14 +571,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考研</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
@@ -585,6 +580,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考研</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
             
               <li class="article-tag-list-item">
