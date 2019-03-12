@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/12/5c87844f38684.jpeg">
 <meta property="og:image" content="https://i.loli.net/2019/03/12/5c876f5bc2b61.jpg">
-<meta property="og:updated_time" content="2019-03-12T10:05:34.108Z">
+<meta property="og:updated_time" content="2019-03-12T17:17:20.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="anaconda搭建tensorflow遇到的坑">
 <meta name="twitter:description" content="安装好了anaconda之后，在cmd输入conda命令识别不了，是因为没有配置环境， 在系统变量里面的path新建两个变量，一个是anaconda3的路径，一个是anaconda3里面scrips的路径。 重新打开cmd就可以安装模块了。 网上的指令有些没用的，因为我的python3.7。 如果直接在cmd键入 pip install tensorflow,找到的版本都没 3.7的 所以直接在">
@@ -212,6 +212,15 @@
 </code></pre><p>最后在python执行</p>
 <pre><code>import tensorflow
 </code></pre><p>如果没有报错，说明安装好了。</p>
+<p>prompt切换工作环境：</p>
+<pre><code>(base) C:\Users\wallacezh&gt;activate tensorflow1
+
+(tensorflow1) C:\Users\wallacezh&gt;
+</code></pre><p>jupyter notebook launch的时候网页空白，</p>
+<p>解决方法： 把jupyter从5.7.6降至5.7.4版本.</p>
+<p>import cv2 jupyter中先运行一下，方便代码提示</p>
+<p>jupyther运行不了，应该是前面的代码运行有问题导致后面的执行不了</p>
+<p>行标  view – toggle line numbers</p>
 
   
 
@@ -478,14 +487,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
@@ -498,7 +499,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">考研</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -510,7 +519,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -518,7 +527,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
               <li class="article-tag-list-item">
