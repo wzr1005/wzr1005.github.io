@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/23/5c716b942fcf5.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/23/5c716b3e9da20.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/24/5c716e4037573.png">
-<meta property="og:updated_time" content="2019-02-25T09:01:42.439Z">
+<meta property="og:updated_time" content="2019-03-12T18:16:36.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客遇到的问题">
 <meta name="twitter:description" content="分类插件，tags插件，四个身位">
@@ -250,6 +250,12 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
 </li>
 </ul>
 <h1 id="博客一篇文章都没有"><a href="#博客一篇文章都没有" class="headerlink" title="博客一篇文章都没有"></a>博客一篇文章都没有</h1><p>  我检查了我的article.ejs 发现多粘贴了一行代码</p>
+<p>畅言去广告</p>
+<p>#feedAv { margin-top: -250px!important; transform: scale(0)!important; z-index: -999!important; } #pop_ad { margin-top: -250px!important; transform: scale(0)!important; z-index: -999!important; }</p>
+<p>二维码分享显示不出图片的问题</p>
+<p>作者换的那个平台好像倒了<br>把它那个url换成<br><a href="http://b.bshare.cn/barCode?site=weixin&amp;url=" target="_blank" rel="noopener">http://b.bshare.cn/barCode?site=weixin&amp;url=</a><br>就是那一行变成：</p>
+<pre><code>&lt; img src=&quot;&lt;%- &apos;qrcode&apos; in locals ? qrcode(sUrl) : &apos;http://b.bshare.cn/barCode?site=weixin&amp;url=&apos; + sUrl %&gt;&quot; alt=&quot;微信分享二维码&quot;&gt;
+</code></pre><p>之后再构建就可以了</p>
 
   
 
@@ -354,11 +360,12 @@ npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/23/搭建博客遇到的问题/" alt="微信分享二维码">
+      <img src="http://qr.liantu.com/api.php?text=http://yoursite.com/2019/02/23/搭建博客遇到的问题/" alt="微信分享二维码">
     </div>
 </div>
 
 <div class="mask js-mask"></div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -520,6 +527,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
@@ -529,10 +540,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -548,11 +555,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -561,10 +572,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
               <li class="article-tag-list-item">
