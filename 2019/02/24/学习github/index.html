@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>学习Github | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么要学习github当你一切搞定之后，就是日常三部曲$ git add .  $ git commit -m -a  $ git push origin hexo 再也不用担心备份或者删库的问题 关联远程库： $ git remote add origin https://github.com/wallacezh/patcode.git 1. 基本概念">
+  <meta name="description" content="为什么要学习github当你一切搞定之后，就是日常三部曲$ git add .  $ git commit -m -a  $ git push origin hexo 再也不用担心备份或者删库的问题 关联远程库： $ git remote add origin https://github.com/wallacezh/patcode.git  ! [rejected]        master">
 <meta name="keywords" content="github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习Github">
 <meta property="og:url" content="http://yoursite.com/2019/02/24/学习github/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
-<meta property="og:description" content="为什么要学习github当你一切搞定之后，就是日常三部曲$ git add .  $ git commit -m -a  $ git push origin hexo 再也不用担心备份或者删库的问题 关联远程库： $ git remote add origin https://github.com/wallacezh/patcode.git 1. 基本概念">
+<meta property="og:description" content="为什么要学习github当你一切搞定之后，就是日常三部曲$ git add .  $ git commit -m -a  $ git push origin hexo 再也不用担心备份或者删库的问题 关联远程库： $ git remote add origin https://github.com/wallacezh/patcode.git  ! [rejected]        master">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-12T09:13:56.233Z">
+<meta property="og:updated_time" content="2019-03-13T08:35:18.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习Github">
-<meta name="twitter:description" content="为什么要学习github当你一切搞定之后，就是日常三部曲$ git add .  $ git commit -m -a  $ git push origin hexo 再也不用担心备份或者删库的问题 关联远程库： $ git remote add origin https://github.com/wallacezh/patcode.git 1. 基本概念">
+<meta name="twitter:description" content="为什么要学习github当你一切搞定之后，就是日常三部曲$ git add .  $ git commit -m -a  $ git push origin hexo 再也不用担心备份或者删库的问题 关联远程库： $ git remote add origin https://github.com/wallacezh/patcode.git  ! [rejected]        master">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
   
@@ -197,6 +197,9 @@ $ git push origin hexo
 </code></pre><p>再也不用担心备份或者删库的问题</p>
 <p>关联远程库：</p>
 <pre><code>$ git remote add origin https://github.com/wallacezh/patcode.git
+</code></pre><p> ! [rejected]        master -&gt; master (non-fast-forward)<br>error: failed to push some refs to ‘<a href="https://github.com/wallacezh/patcode.git&#39;" target="_blank" rel="noopener">https://github.com/wallacezh/patcode.git&#39;</a></p>
+<p>本地强制上传到远程，把远程的覆盖</p>
+<pre><code>$ git push origin master -f
 </code></pre><h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><a id="more"></a>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29744085&auto=1&height=66"></iframe>
 
@@ -327,7 +330,8 @@ $ git commit -m -a 可以不用输入信息 全部提交
 $ git commit -m -a
 
 $ git push origin hexo
-</code></pre>
+</code></pre><p>Browse.VC.opendb这个文件提示是因为vs项目打开的时候自动生成的一个临时文件，每次打开*.sln都会重新产生一个新的，然后在关闭工程的时候，该文件会自动删除。<br>git拒绝上传这个文件。。<br>把vs关了再add 、commit、push就完事了</p>
+
   
 
       
@@ -628,10 +632,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
@@ -645,6 +645,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">考研</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -664,15 +668,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">

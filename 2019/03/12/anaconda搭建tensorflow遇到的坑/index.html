@@ -16,7 +16,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/12/5c87844f38684.jpeg">
 <meta property="og:image" content="https://i.loli.net/2019/03/12/5c876f5bc2b61.jpg">
-<meta property="og:updated_time" content="2019-03-13T07:22:13.988Z">
+<meta property="og:updated_time" content="2019-03-13T12:07:16.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Anaconda搭建tensorflow遇到的坑">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/12/5c87844f38684.jpeg">
@@ -189,17 +189,18 @@
     <div class="article-entry" itemprop="articleBody">
       
       <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
-    <p><img src="https://i.loli.net/2019/03/12/5c87844f38684.jpeg"><br><a id="more"></a><br>安装好了anaconda之后，在cmd输入conda命令识别不了，是因为没有配置环境，</p>
+    <p><img src="https://i.loli.net/2019/03/12/5c87844f38684.jpeg"><br><a id="more"></a></p>
+<h1 id="设置变量"><a href="#设置变量" class="headerlink" title="设置变量"></a>设置变量</h1><p>安装好了anaconda之后，在cmd输入conda命令识别不了，是因为没有配置环境，</p>
 <p>在系统变量里面的path新建两个变量，一个是anaconda3的路径，一个是anaconda3里面scrips的路径。</p>
 <p>重新打开cmd就可以安装模块了。</p>
 <p>网上的指令有些没用的，因为我的python3.7。</p>
 <p>如果直接在cmd键入 pip install tensorflow,找到的版本都没 3.7的</p>
-<p>所以直接在这个<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#tensorflow" target="_blank" rel="noopener">链接</a></p>
+<h1 id="下载python3-7-的tensorflow"><a href="#下载python3-7-的tensorflow" class="headerlink" title="下载python3.7 的tensorflow"></a>下载python3.7 的tensorflow</h1><p>所以直接在这个<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#tensorflow" target="_blank" rel="noopener">链接</a></p>
 <p>看图</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=571338176&auto=1&height=66"></iframe>
 
 <p><img src="https://i.loli.net/2019/03/12/5c876f5bc2b61.jpg"></p>
-<p>安装好了之后，cd到此文件的目录，比如我的 cd C:\Users\wallacezh\Downloads</p>
+<h1 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h1><p>安装好了之后，cd到此文件的目录，比如我的 cd C:\Users\wallacezh\Downloads</p>
 <p>pip install 文件名+扩展名，如：</p>
 <pre><code>pip install tensorflow-1.9.0-cp37-cp37m-win_amd64.whl
 </code></pre><p>如果到最后有红字提醒，安装失败，别慌，以管理员身份再次执行上面的操作，大功告成。</p>
@@ -211,7 +212,7 @@
 </code></pre><p>最后在python执行</p>
 <pre><code>import tensorflow
 </code></pre><p>如果没有报错，说明安装好了。</p>
-<p>prompt切换工作环境：</p>
+<h1 id="Anaconda的一些注意点"><a href="#Anaconda的一些注意点" class="headerlink" title="Anaconda的一些注意点"></a>Anaconda的一些注意点</h1><p>prompt切换工作环境：</p>
 <pre><code>(base) C:\Users\wallacezh&gt;activate tensorflow1
 
 (tensorflow1) C:\Users\wallacezh&gt;
@@ -220,6 +221,7 @@
 <p>import cv2 jupyter中先运行一下，方便代码提示</p>
 <p>jupyther运行不了，应该是前面的代码运行有问题导致后面的执行不了</p>
 <p>行标  view – toggle line numbers</p>
+<p>Anaconda安装模块搜索到点Apply没反应：<strong>重启</strong></p>
 
   
 
@@ -372,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置变量"><span class="toc-number">1.</span> <span class="toc-text">设置变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载python3-7-的tensorflow"><span class="toc-number">2.</span> <span class="toc-text">下载python3.7 的tensorflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#手动安装"><span class="toc-number">3.</span> <span class="toc-text">手动安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Anaconda的一些注意点"><span class="toc-number">4.</span> <span class="toc-text">Anaconda的一些注意点</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -520,10 +522,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
@@ -537,6 +535,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">考研</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -556,15 +558,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">
