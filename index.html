@@ -185,32 +185,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
-    <h1 id="请求库的安装"><a href="#请求库的安装" class="headerlink" title="请求库的安装"></a>请求库的安装</h1><h2 id="jupyter-设置默认浏览器为chrome"><a href="#jupyter-设置默认浏览器为chrome" class="headerlink" title="jupyter 设置默认浏览器为chrome"></a>jupyter 设置默认浏览器为chrome</h2><p>cmd敲入命令</p>
-<pre><code>jupyter notebook --generate-config
-</code></pre><p>根据得到的路径找出jupyter_notebook_config.py的位置，并打开</p>
-<p>找到这句话</p>
-<pre><code>#c.NotebookApp.browser = &apos;&apos;
-</code></pre><p> 后面输入<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> webbrowser</span><br><span class="line"></span><br><span class="line">webbrowser.register(<span class="string">"chrome"</span>,<span class="keyword">None</span>,webbrowser.GenericBrowser(<span class="string">u""</span>C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe<span class="string">""</span>))</span><br><span class="line"></span><br><span class="line">c.NotebookApp.browser = <span class="string">'chrome'</span></span><br></pre></td></tr></table></figure></p>
-<p>浏览器的位置可以填自己的。<strong>记得加双斜杠</strong>复制过来的路径是没有双斜杠的。，</p>
-<p>密码： 3f7f2b59b71787c6312a6f2acd4dbd893688347de352e606</p>
-<p><a href="https://sites.google.com/a/chromium.org/chromedriver" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver</a></p>
-<p>prompt切换工作环境：</p>
-<pre><code>(base) C:\Users\wallacezh&gt;activate tensorflow1
-
-错误原因：
-
-    “cat”是Linux下的命令
-
-应对方法：
-
-去掉 “&amp;&amp; cat result.txt”，改为以下两种方式：
-
-    保存到文件，文件名为“result.txt”
-
-tesseract image.png result -l eng
-</code></pre>
-  
+        <p><img src="https://i.loli.net/2019/03/14/5c8a3d14477b2.jpeg"></p>
+<h1 id="请求库的安装"><a href="#请求库的安装" class="headerlink" title="请求库的安装"></a>请求库的安装</h1><h2 id="jupyter-设置默认浏览器为chrome"><a href="#jupyter-设置默认浏览器为chrome" class="headerlink" title="jupyter 设置默认浏览器为chrome"></a>jupyter 设置默认浏览器为chrome</h2>
+        
+          <a class="article-more-a" href="/2019/03/14/爬虫开发实战/#more">more >></a>
+        
+      
 
       
     </div>
