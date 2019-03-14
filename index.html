@@ -165,6 +165,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-爬虫开发实战" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/爬虫开发实战/">爬虫开发实战</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/14/爬虫开发实战/" class="archive-article-date">
+  	<time datetime="2019-03-13T18:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
+    <h1 id="请求库的安装"><a href="#请求库的安装" class="headerlink" title="请求库的安装"></a>请求库的安装</h1><h2 id="jupyter-设置默认浏览器为chrome"><a href="#jupyter-设置默认浏览器为chrome" class="headerlink" title="jupyter 设置默认浏览器为chrome"></a>jupyter 设置默认浏览器为chrome</h2><p>cmd敲入命令</p>
+<pre><code>jupyter notebook --generate-config
+</code></pre><p>根据得到的路径找出jupyter_notebook_config.py的位置，并打开</p>
+<p>找到这句话</p>
+<pre><code>#c.NotebookApp.browser = &apos;&apos;
+</code></pre><p> 后面输入<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> webbrowser</span><br><span class="line"></span><br><span class="line">webbrowser.register(<span class="string">"chrome"</span>,<span class="keyword">None</span>,webbrowser.GenericBrowser(<span class="string">u""</span>C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe<span class="string">""</span>))</span><br><span class="line"></span><br><span class="line">c.NotebookApp.browser = <span class="string">'chrome'</span></span><br></pre></td></tr></table></figure></p>
+<p>浏览器的位置可以填自己的。<strong>记得加双斜杠</strong>复制过来的路径是没有双斜杠的。，</p>
+<p>密码： 3f7f2b59b71787c6312a6f2acd4dbd893688347de352e606</p>
+<p><a href="https://sites.google.com/a/chromium.org/chromedriver" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver</a></p>
+<p>prompt切换工作环境：</p>
+<pre><code>(base) C:\Users\wallacezh&gt;activate tensorflow1
+
+错误原因：
+
+    “cat”是Linux下的命令
+
+应对方法：
+
+去掉 “&amp;&amp; cat result.txt”，改为以下两种方式：
+
+    保存到文件，文件名为“result.txt”
+
+tesseract image.png result -l eng
+</code></pre>
+  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Anaconda</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">python3.7</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/14/爬虫开发实战/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '8f3a5336c7cd17cf678e',
+  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
+  	repo: 'wallacezh.github.io',
+  	owner: 'wallacezh',
+  	admin: ['wallacezh'],
+  	id: '',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
+  
     <article id="post-anaconda搭建tensorflow遇到的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -205,7 +333,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">anaconda</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Anaconda</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1641,105 +1769,6 @@ gitalk.render('gitalk-container')
   
 
   
-    <article id="emergency-Dijkstra" class="article article-type-emergency  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/28/Dijkstra/">Dijkstra</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/28/Dijkstra/" class="archive-article-date">
-  	<time datetime="2019-02-28T15:53:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一道甲级题，题目如下"><a href="#一道甲级题，题目如下" class="headerlink" title="一道甲级题，题目如下"></a>一道甲级题，题目如下</h2><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805523835109376" target="_blank" rel="noopener">1003 Emergency （25 分）</a><br>
-        
-          <a class="article-more-a" href="/2019/02/28/Dijkstra/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/28/Dijkstra/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1846,19 +1875,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">anaconda</a>
+                <a href="javascript:void(0)" class="js-tag color4">Anaconda</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -1878,15 +1907,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">python3.7</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
               <li class="article-tag-list-item">
