@@ -17,7 +17,7 @@
 <meta property="og:description" content="请求库的安装jupyter 设置默认浏览器为chrome">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/14/5c8a3d14477b2.jpeg">
-<meta property="og:updated_time" content="2019-03-14T11:41:36.423Z">
+<meta property="og:updated_time" content="2019-03-15T14:55:35.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫开发实战">
 <meta name="twitter:description" content="请求库的安装jupyter 设置默认浏览器为chrome">
@@ -216,7 +216,54 @@
     保存到文件，文件名为“result.txt”
 
 tesseract image.png result -l eng
-</code></pre>
+</code></pre><p>在下载的MySQL文件中的bin文件，注意管理员身份运行</p>
+<pre><code>mysqld --install MySQL
+</code></pre><p>注册成功后</p>
+<pre><code>net start mysql
+</code></pre><p>启动服务，启动失败</p>
+<p>在路径中，找到my.ini,没有手动创建一个</p>
+<pre><code>[mysql]
+
+# 设置mysql客户端默认字符集
+
+default-character-set=utf8
+
+[mysqld]
+
+#设置3306端口
+
+port = 3306
+
+# 设置mysql的安装目录
+
+basedir=C:\Users\wallacezh\Documents\mysql-8.0.15-winx64\mysql-8.0.15-winx64
+
+# 设置mysql数据库的数据的存放目录
+
+datadir=C:\Users\wallacezh\Documents\mysql-8.0.15-winx64\mysql-8.0.15-winx64\data
+
+# 允许最大连接数
+
+max_connections=200
+
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+
+character-set-server=utf8
+
+# 创建新表时将使用的默认存储引擎
+
+default-storage-engine=INNODB
+</code></pre><p>然后bin目录执行</p>
+<pre><code>mysqld  --initialize-insecure
+</code></pre><p>发现多了data文件</p>
+<pre><code>net start mysql
+</code></pre><p>ok</p>
+<p>输入mysql,</p>
+<pre><code>ERROR 1045 (28000): Access denied for user &apos;ODBC&apos;@&apos;localhost&apos; (using password: NO)
+</code></pre><p>输入</p>
+<pre><code>mysql -u root -p
+</code></pre><p>遇到输入密码窗口直接回车</p>
+
   
 
       
@@ -391,8 +438,7 @@ tesseract image.png result -l eng
 
 
 
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-
+  
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script type="text/javascript">
@@ -512,6 +558,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
@@ -521,10 +571,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -552,11 +598,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
