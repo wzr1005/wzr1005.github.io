@@ -17,7 +17,7 @@
 <meta property="og:description" content="1049 Counting Ones  这道题不多说，记住最核心的点：本解法的思想是，计算每个数位的出现为’1’的次数总和 对此可能会有疑问：比如我计算了个数的1的个数，那我计算十位的时候会不会重复？ 举个例子，当n=11时， 我固定个数为1，那么个数为1出现的次数 1 * d + 0 + 1 = 2次，a初始为1； 在十位数的时候，0 * 10 + 2 = 2 总和即是4次，看似重复了，然而到底">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/19/5c8fcbb8c5419.jpeg">
-<meta property="og:updated_time" content="2019-03-19T11:23:37.072Z">
+<meta property="og:updated_time" content="2019-03-19T11:25:12.518Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数位Dp问题">
 <meta name="twitter:description" content="1049 Counting Ones  这道题不多说，记住最核心的点：本解法的思想是，计算每个数位的出现为’1’的次数总和 对此可能会有疑问：比如我计算了个数的1的个数，那我计算十位的时候会不会重复？ 举个例子，当n=11时， 我固定个数为1，那么个数为1出现的次数 1 * d + 0 + 1 = 2次，a初始为1； 在十位数的时候，0 * 10 + 2 = 2 总和即是4次，看似重复了，然而到底">
@@ -213,7 +213,7 @@
 <li>当所在位now &gt; 1， 比如322，01x, 11x, 21x, 31x,左边也是4种, 右边x是可以任取的，因为无论x取什么值，都没有超过319所以</li>
 </ol>
 <p>ans += (left + 1) * d</p>
-<p>具体可以举例一个数模拟一下，记忆更深刻，坑点貌似没有，下面是代码。</p>
+<p>left和now,right取法需要一些技巧，不然会卡很久，这个算是一些数理知识把，问题不大。<br>具体可以举例一个数模拟一下，记忆更深刻，坑点貌似没有，下面是代码。</p>
 <p><code>`</code>cpp</p>
 <p>#include <cstdio></cstdio></p>
 <p>#include <iostream></iostream></p>
@@ -227,7 +227,6 @@
 <p>#include <cmath></cmath></p>
 <p>#include &lt;ctype.h&gt;<br>using namespace std;<br>int main() {//分情况讨论 now 为0 1 其他<br>    int n, a = 1, ans = 0;<br>    int left, now, right;<br>    scanf(“%d”, &amp;n);<br>    while (n / a != 0) {//a是位数<br>        left = n / (a <em> 10);<br>        now = n / a % 10;<br>        right = n % a;<br>        if (now == 0) ans += left </em> a;<br>        else if (now == 1) {<br>            ans += (left <em> a + right + 1);//右边是在左边固定的范围内变动<br>        }<br>        else {<br>            ans += (left + 1) </em> a;<br>        }<br>        a*= 10;<br>    }<br>    printf(“%d”, ans);<br>    return 0;<br>}</p>
 <p><code>`</code>cpp</p>
-<p>left和now,right取法需要一些技巧，不然会卡很久，这个算是一些数理知识把，问题不大。</p>
 
   
 
