@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>树状数组(Binary Indexed Tree) | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="树状数组，解决动态前缀和问题的数据结构 如数组元素 a1, a2, a3, … an 询问a1 + a2 + a3 …+ am 修改ai (1 &amp;lt;=i&amp;lt;=n) 暴力复杂度 O(n^2) d[6] = a5 + a6 6的二进制是 110 末尾有一个0 则d[6]包含2^1个元素。 d[8] = a1 + a2 … + a8, 8二进制是1000 2^3 1101 = 13 omen要询">
+  <meta name="description" content="树状数组，解决动态前缀和问题的数据结构 如数组元素 a1, a2, a3, … an 询问a1 + a2 + a3 …+ am 修改ai (1 &amp;lt;=i&amp;lt;=n) 暴力复杂度 O(n^2) d[6] = a5 + a6 6的二进制是 110 末尾有一个0 则d[6]包含2^1个元素。 d[8] = a1 + a2 … + a8, 8二进制是1000 2^3">
 <meta name="keywords" content="算法,树状数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树状数组(Binary Indexed Tree)">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/树状数组-Binary-Indexed-Tree/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
-<meta property="og:description" content="树状数组，解决动态前缀和问题的数据结构 如数组元素 a1, a2, a3, … an 询问a1 + a2 + a3 …+ am 修改ai (1 &amp;lt;=i&amp;lt;=n) 暴力复杂度 O(n^2) d[6] = a5 + a6 6的二进制是 110 末尾有一个0 则d[6]包含2^1个元素。 d[8] = a1 + a2 … + a8, 8二进制是1000 2^3 1101 = 13 omen要询">
+<meta property="og:description" content="树状数组，解决动态前缀和问题的数据结构 如数组元素 a1, a2, a3, … an 询问a1 + a2 + a3 …+ am 修改ai (1 &amp;lt;=i&amp;lt;=n) 暴力复杂度 O(n^2) d[6] = a5 + a6 6的二进制是 110 末尾有一个0 则d[6]包含2^1个元素。 d[8] = a1 + a2 … + a8, 8二进制是1000 2^3">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-20T04:01:24.458Z">
+<meta property="og:updated_time" content="2019-03-20T04:03:51.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树状数组(Binary Indexed Tree)">
-<meta name="twitter:description" content="树状数组，解决动态前缀和问题的数据结构 如数组元素 a1, a2, a3, … an 询问a1 + a2 + a3 …+ am 修改ai (1 &amp;lt;=i&amp;lt;=n) 暴力复杂度 O(n^2) d[6] = a5 + a6 6的二进制是 110 末尾有一个0 则d[6]包含2^1个元素。 d[8] = a1 + a2 … + a8, 8二进制是1000 2^3 1101 = 13 omen要询">
+<meta name="twitter:description" content="树状数组，解决动态前缀和问题的数据结构 如数组元素 a1, a2, a3, … an 询问a1 + a2 + a3 …+ am 修改ai (1 &amp;lt;=i&amp;lt;=n) 暴力复杂度 O(n^2) d[6] = a5 + a6 6的二进制是 110 末尾有一个0 则d[6]包含2^1个元素。 d[8] = a1 + a2 … + a8, 8二进制是1000 2^3">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
   
@@ -195,6 +195,7 @@
 <p>暴力复杂度 O(n^2)</p>
 <p>d[6] = a5 + a6 6的二进制是 110 末尾有一个0 则d[6]包含2^1个元素。</p>
 <p>d[8] = a1 + a2 … + a8, 8二进制是1000 2^3</p>
+<a id="more"></a>
 <p>1101 = 13 omen要询问13这个位置的前缀<br>1101 d[13] 2^0<br>1100 d[12] 2^2把后面的1抹去<br>1000 d[8] 2^3  </p>
 <p>最多抹log次，因此查询复杂度 O(logn);</p>
 <p>lowbit(int x){<br>  return x&amp;(-x);<br>}</p>
@@ -527,6 +528,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
             
@@ -535,15 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -556,10 +561,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
               </li>
             
             <div class="clearfix"></div>
