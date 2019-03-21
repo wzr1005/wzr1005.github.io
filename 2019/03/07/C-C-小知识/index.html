@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
+  
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -8,18 +9,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>C/C++小知识 | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="scanf(&amp;quot;%[^\n]&amp;quot;, &amp;amp;a) 遇到回车结束。 memset头文件 #include &amp;lt;cstring&amp;gt; vector&amp;lt;vector    v.size()是行数，v[0].size() 是列数 如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入 scanf(&amp;quot;%[^\n]&amp;quot;, s);    左对齐标">
+  <meta name="description" content="scanf(&amp;quot;%[^\n]&amp;quot;, &amp;amp;a) 遇到回车结束。 memset头文件 #include &amp;lt;cstring&amp;gt; vector&amp;lt;vector    v.size()是行数，v[0].size() 是列数 如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入 scanf(&amp;quot;%[^\n]&amp;quot;, s); 关闭同步 st">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C&#x2F;C++小知识">
 <meta property="og:url" content="http://yoursite.com/2019/03/07/C-C-小知识/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
-<meta property="og:description" content="scanf(&amp;quot;%[^\n]&amp;quot;, &amp;amp;a) 遇到回车结束。 memset头文件 #include &amp;lt;cstring&amp;gt; vector&amp;lt;vector    v.size()是行数，v[0].size() 是列数 如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入 scanf(&amp;quot;%[^\n]&amp;quot;, s);    左对齐标">
+<meta property="og:description" content="scanf(&amp;quot;%[^\n]&amp;quot;, &amp;amp;a) 遇到回车结束。 memset头文件 #include &amp;lt;cstring&amp;gt; vector&amp;lt;vector    v.size()是行数，v[0].size() 是列数 如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入 scanf(&amp;quot;%[^\n]&amp;quot;, s); 关闭同步 st">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-12T09:34:54.672Z">
+<meta property="og:updated_time" content="2019-03-21T08:48:41.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;C++小知识">
-<meta name="twitter:description" content="scanf(&amp;quot;%[^\n]&amp;quot;, &amp;amp;a) 遇到回车结束。 memset头文件 #include &amp;lt;cstring&amp;gt; vector&amp;lt;vector    v.size()是行数，v[0].size() 是列数 如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入 scanf(&amp;quot;%[^\n]&amp;quot;, s);    左对齐标">
+<meta name="twitter:description" content="scanf(&amp;quot;%[^\n]&amp;quot;, &amp;amp;a) 遇到回车结束。 memset头文件 #include &amp;lt;cstring&amp;gt; vector&amp;lt;vector    v.size()是行数，v[0].size() 是列数 如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入 scanf(&amp;quot;%[^\n]&amp;quot;, s); 关闭同步 st">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
   
@@ -36,7 +37,6 @@
   
 
   
-
 </head>
 </html>
 <body>
@@ -195,7 +195,10 @@
 </code></pre><p>vector&lt;vector<int>    v.size()是行数，v[0].size() 是列数</int></p>
 <p>如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入</p>
 <pre><code>scanf(&quot;%[^\n]&quot;, s);
-</code></pre><table>
+</code></pre><p>关闭同步</p>
+<pre><code>std::ios::sync_with_stdio(false);
+</code></pre><p>10-5   1e-5;</p>
+<table>
 <thead>
 <tr>
 <th style="text-align:left">左对齐标题</th>
@@ -216,7 +219,8 @@
 </tr>
 </tbody>
 </table>
-<p><a id="more"></a>下一行要空一行，</p>
+<a id="more"></a>下一行要空一行，<br><br>求n的阶层<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a, x0, x1;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">	x0 = a / <span class="number">2</span>;<span class="comment">//随便定的初值</span></span><br><span class="line">	x1 = (x0 + a / x0) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		x0 = x1;</span><br><span class="line">		x1 = (x0 + a / x0) / <span class="number">2</span>;</span><br><span class="line">	&#125; <span class="keyword">while</span> (<span class="built_in">fabs</span>(x0 - x1) &gt;= <span class="number">1e-5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; x1 &lt;&lt; <span class="string">'\n'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">float</span> sn = <span class="number">0</span>, temp = <span class="number">1</span>;<span class="comment">//为什么temp也要是浮点数呢？</span></span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		temp = temp * i;</span><br><span class="line">		sn += temp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; sn&lt;&lt;<span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
   
 
@@ -513,10 +517,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
@@ -529,14 +529,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考研</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
@@ -545,7 +537,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考研</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -562,18 +578,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">English</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
             
               <li class="article-tag-list-item">
