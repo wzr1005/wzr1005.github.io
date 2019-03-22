@@ -17,10 +17,12 @@
 <meta property="og:site_name" content="wallacezh&#39;s blog">
 <meta property="og:description" content="scanf(&amp;quot;%[^\n]&amp;quot;, &amp;amp;a) 遇到回车结束。 memset头文件 #include &amp;lt;cstring&amp;gt; vector&amp;lt;vector    v.size()是行数，v[0].size() 是列数 如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入 scanf(&amp;quot;%[^\n]&amp;quot;, s); 关闭同步 st">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-22T03:07:34.461Z">
+<meta property="og:image" content="https://i.loli.net/2019/03/22/5c947a90ee5c9.png">
+<meta property="og:updated_time" content="2019-03-22T12:20:58.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;C++小知识">
 <meta name="twitter:description" content="scanf(&amp;quot;%[^\n]&amp;quot;, &amp;amp;a) 遇到回车结束。 memset头文件 #include &amp;lt;cstring&amp;gt; vector&amp;lt;vector    v.size()是行数，v[0].size() 是列数 如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入 scanf(&amp;quot;%[^\n]&amp;quot;, s); 关闭同步 st">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/22/5c947a90ee5c9.png">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
   
@@ -230,6 +232,18 @@
 <blockquote>
 <p>写一个函数验证哥特巴赫猜想：一个不小于6的偶数可以表示为两个素数之和，如6 == 3 + 3, 8 = 3 + 5;</p>
 </blockquote>
+<h2 id="数组与指针"><a href="#数组与指针" class="headerlink" title="数组与指针"></a>数组与指针</h2><h4 id="约定：指针就是地址，变量的指针就是变量的地址。"><a href="#约定：指针就是地址，变量的指针就是变量的地址。" class="headerlink" title="约定：指针就是地址，变量的指针就是变量的地址。"></a>约定：指针就是地址，变量的指针就是变量的地址。</h4><p>  可以用 <strong>取地址运算符&amp;</strong> 获得一个变量的地址，</p>
+<h4 id="指针变量就-存储指针-地址-变量，如："><a href="#指针变量就-存储指针-地址-变量，如：" class="headerlink" title="指针变量就 存储指针(地址) 变量，如："></a>指针变量就 存储指针(地址) 变量，如：</h4><p>  Type* p; //p是存储”<strong>Type类型变量的地址</strong>“ 的变量</p>
+<h4 id="通过取内容运算符-可以得到一个指针变量指向的变量"><a href="#通过取内容运算符-可以得到一个指针变量指向的变量" class="headerlink" title="通过取内容运算符* 可以得到一个指针变量指向的变量"></a>通过取内容运算符* 可以得到一个指针变量指向的变量</h4><ul>
+<li>p 就是p指向的那个变量的值， * 相当于一个钥匙</li>
+</ul>
+<p>int arr[] = {10，20，30，40}；<br>int<em> p = arr’//数组名就是数组第一个元素的地址，即arr等于&amp;(arr[0])<br>//p[i]就是</em>(p+i)</p>
+<h4 id="指针指向动态内存"><a href="#指针指向动态内存" class="headerlink" title="指针指向动态内存"></a>指针指向动态内存</h4><p>堆存储区：所有程序共享的内存<br>int* p = new int;//malloc new向操作系统申请int型变量<br>delete p;//删除内存</p>
+<p>int n = 4;<br>int* p = new int[n];</p>
+<p>如果p是int型指针变量，4个字节，那么 char<em> s = (char</em> )p;<br>char ch = ‘A’;<br>int n2 = n * sizeof(int) / sizeof(char);<br>for(int i = 0; i &lt; n2; i++){<br>  s[i] = ch + i;<br>}</p>
+<h4 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h4><h5 id="传统的过程式编程：变量-对象-就是一些存储数据的内存块，而过程-函数-堆这些数据进行处理"><a href="#传统的过程式编程：变量-对象-就是一些存储数据的内存块，而过程-函数-堆这些数据进行处理" class="headerlink" title="传统的过程式编程：变量(对象)就是一些存储数据的内存块，而过程(函数)堆这些数据进行处理"></a>传统的过程式编程：变量(对象)就是一些存储数据的内存块，而过程(函数)堆这些数据进行处理</h5><p><img src="https://i.loli.net/2019/03/22/5c947a90ee5c9.png"></p>
+<p>struct或class关键字定义一个类，定义的类就是一个数据类型<br>student stu;<br>student<em> p = &stu;<br>(</em> p).name = “LIMING”;//* p就是指向变量stu;<br>p-&gt;score = 78;//p指向的类对象的成员score<br>student stuidents[3]; p = student + 2;//指向第三个student对象<br>struct student{<br>  string name;<br>  double score;<br>  void print();<br>};<br>void student::print(){//student就是类作用域，print()是student类的成员函数<br>  cout&lt;&lt;name&lt;&lt;” “&lt;&lt;score&lt;&lt;’\n’;<br>}</p>
+<h4 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h4><p>struct student{<br>  string name;<br>  double score;<br>  void print(){<br>    cout&lt;<this->name&lt;&lt;” “&lt;<this->score&lt;&lt;’\n’<br>  }<br>}<br>struct和class的区别：<br>struct里的成员默认是public(公开的)<br>class里的成员默认是private(私有的)<br>class student{<br>  public://这样不太安全，任意函数都可以修改类里面的成员，一般去掉这句<br>  string name;<br>  double score;<br>public:<br>  void print(){<br>    cout&lt;<this->name&lt;&lt;” “&lt;<this->score&lt;&lt;’\n’<br>  }<br>  get_name(){return name’}<br>  get_score(){return score;}<br>  void set_name(string n) {name = n;}<br>  void set_score(double s) {score = s;}<br>}<br>在main函数里面修改成员值<br>set_name(“LIMING”);<br>set_score(78.5);<br>stu.print();</this-></this-></this-></this-></p>
 
   
 
@@ -383,7 +397,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-C-题目"><span class="toc-number">1.</span> <span class="toc-text">C/C++题目</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-C-题目"><span class="toc-number">1.</span> <span class="toc-text">C/C++题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组与指针"><span class="toc-number">2.</span> <span class="toc-text">数组与指针</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#约定：指针就是地址，变量的指针就是变量的地址。"><span class="toc-number">2.0.1.</span> <span class="toc-text">约定：指针就是地址，变量的指针就是变量的地址。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指针变量就-存储指针-地址-变量，如："><span class="toc-number">2.0.2.</span> <span class="toc-text">指针变量就 存储指针(地址) 变量，如：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过取内容运算符-可以得到一个指针变量指向的变量"><span class="toc-number">2.0.3.</span> <span class="toc-text">通过取内容运算符* 可以得到一个指针变量指向的变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指针指向动态内存"><span class="toc-number">2.0.4.</span> <span class="toc-text">指针指向动态内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#面向对象编程"><span class="toc-number">2.0.5.</span> <span class="toc-text">面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#传统的过程式编程：变量-对象-就是一些存储数据的内存块，而过程-函数-堆这些数据进行处理"><span class="toc-number">2.0.5.1.</span> <span class="toc-text">传统的过程式编程：变量(对象)就是一些存储数据的内存块，而过程(函数)堆这些数据进行处理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#this指针"><span class="toc-number">2.0.6.</span> <span class="toc-text">this指针</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
