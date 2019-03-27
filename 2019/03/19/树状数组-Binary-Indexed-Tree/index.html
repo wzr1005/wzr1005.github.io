@@ -18,7 +18,7 @@
 <meta property="og:description" content="树状数组，解决动态前缀和问题的数据结构 如数组元素 a1, a2, a3, … an 询问a1 + a2 + a3 …+ am 修改ai (1 &amp;lt;=i&amp;lt;=n) 暴力复杂度 O(n^2) d[6] = a5 + a6 6的二进制是 110 末尾有一个0 则d[6]包含2^1个元素。 d[8] = a1 + a2 … + a8, 8二进制是1000 2^3">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/20/5c91f0b47b694.jpg">
-<meta property="og:updated_time" content="2019-03-20T07:51:01.111Z">
+<meta property="og:updated_time" content="2019-03-24T15:05:14.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树状数组(Binary Indexed Tree)">
 <meta name="twitter:description" content="树状数组，解决动态前缀和问题的数据结构 如数组元素 a1, a2, a3, … an 询问a1 + a2 + a3 …+ am 修改ai (1 &amp;lt;=i&amp;lt;=n) 暴力复杂度 O(n^2) d[6] = a5 + a6 6的二进制是 110 末尾有一个0 则d[6]包含2^1个元素。 d[8] = a1 + a2 … + a8, 8二进制是1000 2^3">
@@ -209,6 +209,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> d[<span class="number">100005</span>], n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &amp; (-x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (x) &#123;</span><br><span class="line">		res += d[x];</span><br><span class="line">		x -= lowbit(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>//更新树状数组d[]<br>这个过程是从右到左不断定位x的二进制最右边的1 左边的0的过程。因此update函数的时间复杂度为O(logN).</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> v)</span> </span>&#123; <span class="comment">//对a[x]加上v</span></span><br><span class="line">	<span class="keyword">while</span> (x &lt;= n) &#123;</span><br><span class="line">		d[x] += v;</span><br><span class="line">		x += lowbit(x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我用的 maxn = 10 依次输入 4 7 8<br>则d[4] = 1, d[7] = 1, d[8] = 3 其余为0<br>mid = 5 getsum(5) = 1, &lt; k,<br>L = mid + 1 = 6,<br>mid = (6 + 10) / 2 = 8<br>getsum(8) = 5 &gt;= k<br>r = 8, L = 6 mid = (8 + 6)/ 2 = 7<br>7 &gt;= k r = 7, L = 6 mid = 6<br>getsum(6) = 1 L = 6 + 1 = 7,<br>L == r == 7</p>
 
   
 
@@ -327,6 +328,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/03/27/堆路径的输出与判别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          堆路径的输出与判别
+        
+      </div>
+    </a>
   
   
     <a href="/2019/03/18/数位dp问题/" id="article-nav-older" class="article-nav-link-wrap">
@@ -500,10 +510,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
@@ -513,6 +519,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -532,6 +542,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
               </li>
             
@@ -544,11 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -556,11 +570,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
             
               <li class="article-tag-list-item">

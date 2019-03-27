@@ -165,6 +165,111 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-堆路径的输出与判别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/27/堆路径的输出与判别/">堆路径的输出与判别</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/27/堆路径的输出与判别/" class="archive-article-date">
+  	<time datetime="2019-03-27T10:36:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
+    <p><a href="&#39;https://pintia.cn/problem-sets/994805342720868352/problems/1071785408849047552&#39;">1155 Heap Paths </a><br>这道题属于简单题，建树，打印叶子结点，以及判断是否是堆，以及是大顶堆还是小顶堆</p>
+<p>建树只需要层次遍历，</p>
+<p>打印叶子结点题目要求从右往左 vector压入<br>因此大致是<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(isleaf(Tree))&#123;</span><br><span class="line">  print(<span class="built_in">vector</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(Tree-&gt;right != <span class="literal">NULL</span>) &#123;</span><br><span class="line">  <span class="built_in">vector</span>.push_back(Tree-&gt;right-&gt;data);</span><br><span class="line">  DFS(Tree-&gt;right);</span><br><span class="line">  <span class="built_in">vector</span>.pop_back();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(Tree-&gt;left != <span class="literal">NULL</span>) &#123;</span><br><span class="line">  <span class="built_in">vector</span>.push_back(Tree-&gt;left-&gt;data);</span><br><span class="line">  DFS(Tree-&gt;left);</span><br><span class="line">  <span class="built_in">vector</span>.pop_back();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>判断是否是堆就比较简单了，</p>
+<h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">left</span>, *<span class="title">right</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> n, x;</span><br><span class="line">node* root = <span class="keyword">new</span> node;<span class="comment">//新建根结点</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;<span class="comment">//层序遍历建树</span></span><br><span class="line">	<span class="keyword">int</span> m = n - <span class="number">1</span>;<span class="comment">//n-1次，</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">	root-&gt;data = x;</span><br><span class="line">	root-&gt;left = root-&gt;right = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="built_in">queue</span>&lt;node*&gt; q;</span><br><span class="line">	q.push(root);</span><br><span class="line">	<span class="keyword">while</span> (!q.empty() &amp;&amp; m &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		node* tmp = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">if</span> (m &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">			node* k = <span class="keyword">new</span> node;</span><br><span class="line">			k-&gt;data = x;</span><br><span class="line">			k-&gt;left = k-&gt;right = <span class="literal">NULL</span>;</span><br><span class="line">			tmp-&gt;left = k;</span><br><span class="line">			m--;</span><br><span class="line">			q.push(k);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (m &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">			node* k = <span class="keyword">new</span> node;</span><br><span class="line">			k-&gt;data = x;</span><br><span class="line">			k-&gt;left = k-&gt;right = <span class="literal">NULL</span>;</span><br><span class="line">			tmp-&gt;right = k;</span><br><span class="line">			q.push(k);</span><br><span class="line">			m--;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(node* tree)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (tree-&gt;left == <span class="literal">NULL</span> &amp;&amp; tree-&gt;right == <span class="literal">NULL</span>) &#123;<span class="comment">//到达叶子结点</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.size(); i++) &#123;<span class="comment">//输出路径</span></span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; v[i];</span><br><span class="line">			<span class="keyword">if</span> (i != v.size() - <span class="number">1</span>)	<span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (tree-&gt;right != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		v.push_back(tree-&gt;right-&gt;data);<span class="comment">//路径中的结点全部进入数组</span></span><br><span class="line">		DFS(tree-&gt;right);</span><br><span class="line">		v.pop_back();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (tree-&gt;left != <span class="literal">NULL</span>) &#123;</span><br><span class="line">		v.push_back(tree-&gt;left-&gt;data);</span><br><span class="line">		DFS(tree-&gt;left);</span><br><span class="line">		v.pop_back();<span class="comment">//弹出</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">(node* tree)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;node*&gt; q;</span><br><span class="line">	q.push(tree);</span><br><span class="line">	<span class="keyword">int</span> big = <span class="number">0</span>, small = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">		node* tmp = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">if</span> (tmp-&gt;left != <span class="literal">NULL</span>) &#123;</span><br><span class="line">			q.push(tmp-&gt;left);</span><br><span class="line">			<span class="keyword">if</span> (tmp-&gt;data &gt; tmp-&gt;left-&gt;data) &#123;</span><br><span class="line">				<span class="keyword">if</span> (small) &#123;</span><br><span class="line">					<span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//与之前的矛盾，不是堆结构</span></span><br><span class="line">				&#125;</span><br><span class="line">				big = <span class="number">1</span>;<span class="comment">//大顶堆的标志</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> (big)	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">				small = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (tmp-&gt;right != <span class="literal">NULL</span>) &#123;</span><br><span class="line">			q.push(tmp-&gt;right);</span><br><span class="line">			<span class="keyword">if</span> (tmp-&gt;data &gt; tmp-&gt;right-&gt;data) &#123;</span><br><span class="line">				<span class="keyword">if</span> (small) &#123;<span class="comment">//同上</span></span><br><span class="line">					<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				big = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> (big)	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">				small = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (big == <span class="number">1</span>)	<span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//大顶堆</span></span><br><span class="line">	<span class="keyword">if</span> (small == <span class="number">1</span>)	<span class="keyword">return</span> <span class="number">2</span>;<span class="comment">//小顶堆</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	init();<span class="comment">//层序建树</span></span><br><span class="line">	v.push_back(root-&gt;data);</span><br><span class="line">	DFS(root);</span><br><span class="line">	<span class="keyword">int</span> k = check(root);</span><br><span class="line">	<span class="keyword">if</span> (k == <span class="number">0</span>)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Not Heap"</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (k == <span class="number">1</span>)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Max Heap"</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (k == <span class="number">2</span>)	<span class="built_in">cout</span> &lt;&lt; <span class="string">"Min Heap"</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/27/堆路径的输出与判别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '8f3a5336c7cd17cf678e',
+  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
+  	repo: 'wallacezh.github.io',
+  	owner: 'wallacezh',
+  	admin: ['wallacezh'],
+  	id: '',
+  	distractionFreeMode: 'false'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
+  
     <article id="post-树状数组-Binary-Indexed-Tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1641,109 +1746,6 @@ gitalk.render('gitalk-container')
   
 
   
-    <article id="post-DFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/05/DFS/">DFS&amp;Dijkstra</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/05/DFS/" class="archive-article-date">
-  	<time datetime="2019-03-05T15:24:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805489282433024" target="_blank" rel="noopener">1018 Public Bike Management</a><br>这道题先用Dijkstra求出基地到目的地点的最佳路径，用vector数组pre[maxn]存储所有途径路径最短的结点，</p>
-<p>再用DFS遍历，在遍历过程中，顺便比较出，携带车俩最少的路线，以及输出最小携带车俩数和最小剩余车俩</p>
-<p>为什么会有剩余车俩呢，因为假设倒数第二个站点有100俩车，最后一个站只缺一辆车，那么就多了99辆车，剩余的99辆车就需要带回基地。</p>
-<p>这道题的难点就在意如何写这个DFS.</p>
-<p>算法笔记这本书有个套路，关于Dijkstra只要输出路径，就需要用vector数组pre[maxn]存储所有路径的结点，</p>
-<p>例如 u -&gt; v<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(d[v] &gt; d[u] + G[u][v])&#123;</span><br><span class="line">  pre[v].push_back(u);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2019/03/05/DFS/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/05/DFS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1850,10 +1852,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">python 3.7</a>
               </li>
             
@@ -1863,6 +1861,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -1882,6 +1884,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
               </li>
             
@@ -1894,11 +1900,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">atom</a>
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -1906,11 +1912,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color5">atom</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
             
               <li class="article-tag-list-item">
