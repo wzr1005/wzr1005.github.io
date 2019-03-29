@@ -165,6 +165,113 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="gas-station" class="article article-type-gas  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/07/station/">Gas Station</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/07/station/" class="archive-article-date">
+  	<time datetime="2019-03-06T16:42:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805396953219072" target="_blank" rel="noopener">1072 Gas Station</a><br>这道题读懂题意也是不简单，恨我英语渣啊。。。怪不得说英语是计算机的第二语言，什么时候我的英语才能上一个台阶~！</p>
+<p>题目要求在n个住户之间建一个加油站，提供m个加油站的备选位置，<strong>要求是加油站离住户尽可能远，且不超出他的service range</strong></p>
+<p>这里用的是Dijkstra对每个加油站求一次，时间复杂度上面应该比弗洛伊德好。</p>
+<p>这里有以下坑点：</p>
+<ol>
+<li>可能越界。const int maxn 应该为 &gt; n + m,取1020比较安全，反正开数组不用钱</li>
+<li>是最短距离尽可能远的位置，不是尽可能近</li>
+<li>命名上面自己思路要清晰，不然很多变量比较来比较去的，不仔细很容易犯错，而且需要一些浮点与整形的比较</li>
+</ol>
+<p>另外，四舍五入真的是玄学，不知道什么时候可以自动转，什么时候需要自己求<br>
+        
+          <a class="article-more-a" href="/2019/03/07/station/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/07/station/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '8f3a5336c7cd17cf678e',
+  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
+  	repo: 'wallacezh.github.io',
+  	owner: 'wallacezh',
+  	admin: ['wallacezh'],
+  	id: '',
+  	distractionFreeMode: 'false'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
+  
     <article id="post-DFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1525,7 +1632,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -1537,11 +1644,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -1554,6 +1657,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">

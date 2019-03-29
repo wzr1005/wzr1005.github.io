@@ -165,6 +165,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-给出中序和先序序列查询最小公共祖先" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/30/给出中序和先序序列查询最小公共祖先/">给出中序和先序序列查询最小公共祖先</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/30/给出中序和先序序列查询最小公共祖先/" class="archive-article-date">
+  	<time datetime="2019-03-29T17:26:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
+    <p><a href="&#39;https://pintia.cn/problem-sets/994805342720868352/problems/1038430130011897856&#39;">1151 LCA in a Binary Tree </a></p>
+<p>这道题可以不用建树，建树的话会麻烦点，要用后序非递归或者先序递归。</p>
+<p>这里既然给出了中序序列和先序序列，那么我们可以得出这样几个规律：</p>
+<ol>
+<li><p>在中序序列序号下，u、v点的公共祖先a若存在，那么中序序列的顺序必然是 u &lt; ···&lt; a &lt; ··· &lt; v;</p>
+</li>
+<li><p>若u、v都在根节点的左边，那么递归进入根节点的左子树，再判断三者关系，右边同理，</p>
+</li>
+<li><p>递归的过程中，根结点沿着先序序列移动，最小公共祖先唯一。</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; In, Pre;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pos;<span class="comment">//存储每个结点对应的中序顺序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> inl, <span class="keyword">int</span> inr, <span class="keyword">int</span> PreRoot, <span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (inl &gt; inr)	<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> inRoot = pos[Pre[PreRoot]];</span><br><span class="line">	<span class="keyword">int</span> uIn = pos[u], vIn = pos[v];</span><br><span class="line">	<span class="keyword">if</span> (pos[u] &lt; inRoot&amp;&amp;pos[v] &lt; inRoot) &#123;</span><br><span class="line">		LCA(inl, inRoot - <span class="number">1</span>, PreRoot + <span class="number">1</span>, u, v);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> ((pos[u] &lt; inRoot&amp;&amp;pos[v] &gt; inRoot)||(pos[u] &gt; inRoot&amp;&amp;pos[v] &lt; inRoot)) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"LCA of %d and %d is %d.\n"</span>, u, v, In[inRoot]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (pos[u] &gt; inRoot&amp;&amp;pos[v] &gt; inRoot) &#123;</span><br><span class="line">		LCA(inRoot + <span class="number">1</span>, inr, PreRoot + inRoot - inl + <span class="number">1</span>, u, v);<span class="comment">//InRoot - inl 是此时根preRoot左子树的个数，</span></span><br><span class="line">		<span class="comment">//于是PreRoot + inRoot - inl + 1 就是根PreRoot的右子树</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (pos[u] == inRoot)	<span class="built_in">printf</span>(<span class="string">"%d is an ancestor of %d.\n"</span>, u, v);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (pos[v] == inRoot)	<span class="built_in">printf</span>(<span class="string">"%d is an ancestor of %d.\n"</span>, v, u);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m, n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; m &gt;&gt; n;</span><br><span class="line">	In.resize(n + <span class="number">1</span>), Pre.resize(n + <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; In[i];</span><br><span class="line">		pos[In[i]] = i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; Pre[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> u, v;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v;</span><br><span class="line">		<span class="keyword">if</span> (pos[u] == <span class="number">0</span> || pos[v] == <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (pos[u] == <span class="number">0</span>&amp;&amp; pos[v] == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"ERROR: %d and %d are not found.\n"</span>, u, v);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (pos[u] == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"ERROR: %d is not found.\n"</span>, u);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (pos[v] == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"ERROR: %d is not found.\n"</span>, v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			LCA(<span class="number">1</span>, n, <span class="number">1</span>, u, v);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/30/给出中序和先序序列查询最小公共祖先/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '8f3a5336c7cd17cf678e',
+  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
+  	repo: 'wallacezh.github.io',
+  	owner: 'wallacezh',
+  	admin: ['wallacezh'],
+  	id: '',
+  	distractionFreeMode: 'false'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
+  
     <article id="post-堆路径的输出与判别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1541,6 +1649,11 @@ gitalk.render('gitalk-container')
 </code></pre><p>关闭同步</p>
 <pre><code>std::ios::sync_with_stdio(false);
 </code></pre><p>10-5   1e-5;</p>
+<p>Inf 可写作 0x3F3F3F3F (1&lt;&lt;31) - 1</p>
+<p>unordered_map 头文件也是 #include &lt;unordered_map&gt;</p>
+<p>map如果是字符串到整型的映射，必须使用string 而不能用char数组<br>    map&lt;string, int&gt;</p>
+<p>vector圆括号表示 方括号表示二维</p>
+<p>0和1不是质数</p>
 <table>
 <thead>
 <tr>
@@ -1588,113 +1701,6 @@ gitalk.render('gitalk-container')
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/07/C-C-小知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="gas-station" class="article article-type-gas  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/07/station/">Gas Station</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/07/station/" class="archive-article-date">
-  	<time datetime="2019-03-06T16:42:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805396953219072" target="_blank" rel="noopener">1072 Gas Station</a><br>这道题读懂题意也是不简单，恨我英语渣啊。。。怪不得说英语是计算机的第二语言，什么时候我的英语才能上一个台阶~！</p>
-<p>题目要求在n个住户之间建一个加油站，提供m个加油站的备选位置，<strong>要求是加油站离住户尽可能远，且不超出他的service range</strong></p>
-<p>这里用的是Dijkstra对每个加油站求一次，时间复杂度上面应该比弗洛伊德好。</p>
-<p>这里有以下坑点：</p>
-<ol>
-<li>可能越界。const int maxn 应该为 &gt; n + m,取1020比较安全，反正开数组不用钱</li>
-<li>是最短距离尽可能远的位置，不是尽可能近</li>
-<li>命名上面自己思路要清晰，不然很多变量比较来比较去的，不仔细很容易犯错，而且需要一些浮点与整形的比较</li>
-</ol>
-<p>另外，四舍五入真的是玄学，不知道什么时候可以自动转，什么时候需要自己求<br>
-        
-          <a class="article-more-a" href="/2019/03/07/station/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/07/station/">展开全文 >></a>
         </p>
       
 
@@ -1888,7 +1894,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -1900,11 +1906,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -1917,6 +1919,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">

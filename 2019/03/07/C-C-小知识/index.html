@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/26/5c9a21e3c65ba.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/22/5c947a90ee5c9.png">
-<meta property="og:updated_time" content="2019-03-26T17:15:52.887Z">
+<meta property="og:updated_time" content="2019-03-28T09:26:12.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;C++小知识">
 <meta name="twitter:description" content="scanf(&amp;quot;%[^\n]&amp;quot;, &amp;amp;a) 遇到回车结束。 memset头文件 #include &amp;lt;cstring&amp;gt; vector&amp;lt;vector    v.size()是行数，v[0].size() 是列数 如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入 scanf(&amp;quot;%[^\n]&amp;quot;, s); 关闭同步 st">
@@ -201,6 +201,11 @@
 </code></pre><p>关闭同步</p>
 <pre><code>std::ios::sync_with_stdio(false);
 </code></pre><p>10-5   1e-5;</p>
+<p>Inf 可写作 0x3F3F3F3F (1&lt;&lt;31) - 1</p>
+<p>unordered_map 头文件也是 #include &lt;unordered_map&gt;</p>
+<p>map如果是字符串到整型的映射，必须使用string 而不能用char数组<br>    map&lt;string, int&gt;</p>
+<p>vector圆括号表示 方括号表示二维</p>
+<p>0和1不是质数</p>
 <table>
 <thead>
 <tr>
@@ -222,7 +227,7 @@
 </tr>
 </tbody>
 </table>
-<a id="more"></a>下一行要空一行，<br><br>sort降序排序<br>    sort(A, A + n, greater<int>());<br><br>字符串转换为数字，头文件iostream string<br><br>    stoi(string)<br>字符串前面插入(插入位置，插入个数，插入字符)；<br>    s.insert(0, 4 - s.size(), ‘0’);<br><br>string中find()返回值是字母在母串中的位置（下标记录），如果没有找到，那么会返回一个特别的标记npos。（返回值可以看成是一个int型的数）<br><br>#### sort排序<br>STL的sort算法，数据量大时采用QuickSort快排算法，分段归并排序。一旦分段后的数据量小于某个门槛（16），为避免QuickSort快排的递归调用带来过大的额外负荷，就改用Insertion Sort插入排序。如果递归层次过深，还会改用HeapSort堆排序。<br><br><img src="https://i.loli.net/2019/03/26/5c9a21e3c65ba.png"><br><br>1不是素数，是质数<br><br>求n的阶层<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a, x0, x1;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">	x0 = a / <span class="number">2</span>;<span class="comment">//随便定的初值</span></span><br><span class="line">	x1 = (x0 + a / x0) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		x0 = x1;</span><br><span class="line">		x1 = (x0 + a / x0) / <span class="number">2</span>;</span><br><span class="line">	&#125; <span class="keyword">while</span> (<span class="built_in">fabs</span>(x0 - x1) &gt;= <span class="number">1e-5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; x1 &lt;&lt; <span class="string">'\n'</span>;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>下一行要空一行，<br><br>sort降序排序<br>    sort(A, A + n, greater<int>());<br><br>字符串转换为数字，头文件iostream string<br><br>    stoi(string)<br>字符串前面插入(插入位置，插入个数，插入字符)；<br>    s.insert(0, 4 - s.size(), ‘0’);<br><br>string中find()返回值是字母在母串中的位置（下标记录），如果没有找到，那么会返回一个特别的标记npos。（返回值可以看成是一个int型的数）<br><br>int                        -2147483648～2147483647  (10位数，2e9   2^31 - 1)<br><br>long long：           -9223372036854775808～9223372036854775807  (19位数， 9e18 ) 2^63 - 1<br><br><br>#### sort排序<br>STL的sort算法，数据量大时采用QuickSort快排算法，分段归并排序。一旦分段后的数据量小于某个门槛（16），为避免QuickSort快排的递归调用带来过大的额外负荷，就改用Insertion Sort插入排序。如果递归层次过深，还会改用HeapSort堆排序。<br><br><img src="https://i.loli.net/2019/03/26/5c9a21e3c65ba.png"><br><br>1不是素数，是质数<br><br>求n的阶层<br><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a, x0, x1;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">	x0 = a / <span class="number">2</span>;<span class="comment">//随便定的初值</span></span><br><span class="line">	x1 = (x0 + a / x0) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">do</span> &#123;</span><br><span class="line">		x0 = x1;</span><br><span class="line">		x1 = (x0 + a / x0) / <span class="number">2</span>;</span><br><span class="line">	&#125; <span class="keyword">while</span> (<span class="built_in">fabs</span>(x0 - x1) &gt;= <span class="number">1e-5</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; x1 &lt;&lt; <span class="string">'\n'</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">float</span> sn = <span class="number">0</span>, temp = <span class="number">1</span>;<span class="comment">//为什么temp也要是浮点数呢？</span></span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		temp = temp * i;</span><br><span class="line">		sn += temp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; sn&lt;&lt;<span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="C-C-题目"><a href="#C-C-题目" class="headerlink" title="C/C++题目"></a>C/C++题目</h2><blockquote>
 <p>用牛顿迭代法求防潮垫 根，方程是a <em> x^3 + b </em> x ^ 2 + c * x + d, a = 1, b = 2, c = 3, d = 4;</p>
@@ -578,7 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -590,11 +595,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">English</a>
+                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -607,6 +608,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
               </li>
             
               <li class="article-tag-list-item">
