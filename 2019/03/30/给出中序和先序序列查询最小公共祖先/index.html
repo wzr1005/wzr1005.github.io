@@ -9,19 +9,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>给出中序和先序序列查询最小公共祖先 | wallacezh&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1151 LCA in a Binary Tree  这道题可以不用建树，建树的话会麻烦点，要用后序非递归或者先序递归。 这里既然给出了中序序列和先序序列，那么我们可以得出这样几个规律：  在中序序列序号下，u、v点的公共祖先a若存在，那么中序序列的顺序必然是 u &amp;lt; ···&amp;lt; a &amp;lt; ··· &amp;lt; v;  若u、v都在根节点的左边，那么递归进入根节点的左子树，再判断三者关">
+  <meta name="description" content="1151 LCA in a Binary Tree">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给出中序和先序序列查询最小公共祖先">
 <meta property="og:url" content="http://yoursite.com/2019/03/30/给出中序和先序序列查询最小公共祖先/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
-<meta property="og:description" content="1151 LCA in a Binary Tree  这道题可以不用建树，建树的话会麻烦点，要用后序非递归或者先序递归。 这里既然给出了中序序列和先序序列，那么我们可以得出这样几个规律：  在中序序列序号下，u、v点的公共祖先a若存在，那么中序序列的顺序必然是 u &amp;lt; ···&amp;lt; a &amp;lt; ··· &amp;lt; v;  若u、v都在根节点的左边，那么递归进入根节点的左子树，再判断三者关">
+<meta property="og:description" content="1151 LCA in a Binary Tree">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/30/5c9e575b878fb.jpeg">
-<meta property="og:updated_time" content="2019-03-29T17:35:49.541Z">
+<meta property="og:updated_time" content="2019-03-29T17:36:37.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="给出中序和先序序列查询最小公共祖先">
-<meta name="twitter:description" content="1151 LCA in a Binary Tree  这道题可以不用建树，建树的话会麻烦点，要用后序非递归或者先序递归。 这里既然给出了中序序列和先序序列，那么我们可以得出这样几个规律：  在中序序列序号下，u、v点的公共祖先a若存在，那么中序序列的顺序必然是 u &amp;lt; ···&amp;lt; a &amp;lt; ··· &amp;lt; v;  若u、v都在根节点的左边，那么递归进入根节点的左子树，再判断三者关">
+<meta name="twitter:description" content="1151 LCA in a Binary Tree">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/30/5c9e575b878fb.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="wallacezh&#39;s blog" type="application/atom+xml">
@@ -193,6 +193,7 @@
       <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
     <p><img src="https://i.loli.net/2019/03/30/5c9e575b878fb.jpeg"></p>
 <p><a href="&#39;https://pintia.cn/problem-sets/994805342720868352/problems/1038430130011897856&#39;">1151 LCA in a Binary Tree </a></p>
+<a id="more"></a>
 <p>这道题可以不用建树，建树的话会麻烦点，要用后序非递归或者先序递归。</p>
 <p>这里既然给出了中序序列和先序序列，那么我们可以得出这样几个规律：</p>
 <ol>
@@ -507,11 +508,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考研</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color3">考研</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -527,10 +528,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
             
@@ -539,7 +536,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
+                <a href="javascript:void(0)" class="js-tag color5">树状数组</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -548,6 +545,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">科学上网</a>
               </li>
             
               <li class="article-tag-list-item">
