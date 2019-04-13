@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="wallacezh&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="wallacezh&#39;s blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -165,40 +165,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-输出栈序列-栈的递归各种脑洞" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于hexo博客添加背景音乐的一些问题方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/08/输出栈序列-栈的递归各种脑洞/">输出栈序列,栈的递归各种脑洞</a>
+      <a class="article-title" href="/2019/02/24/关于hexo博客添加背景音乐的一些问题方案/">关于Hexo博客添加背景音乐的一些问题方案</a>
     </h1>
   
 
         
-        <a href="/2019/03/08/输出栈序列-栈的递归各种脑洞/" class="archive-article-date">
-  	<time datetime="2019-03-08T12:36:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-08</time>
+        <a href="/2019/02/24/关于hexo博客添加背景音乐的一些问题方案/" class="archive-article-date">
+  	<time datetime="2019-02-23T16:56:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://i.loli.net/2019/03/08/5c8262218f5de.jpg" width="520" height="433"><br>一个人在群里问了一个好像很基础的题:从1到n压入栈，如何写出打印所有合法出栈序列的code。</p>
-<p>当时楞了一下，联想到入栈是先序序列，是不是递归求中序列？不对，</p>
-<p>是不是跟全排列有关？好像多此一举，另外全排列的解法不见得会，我估计很多人都不会，这算很基础的题，但可不一般的难/。/</p>
-<p>琢磨了几个小时，写出了这种解法。</p>
-<pre><code>#include &lt;cstdio&gt;
-#include &lt;algorithm&gt;
-#include &lt;stack&gt;
-using namespace std;
-int num = 0, n, temp;//记录序列个数
-int ans[17];
-stack&lt;int&gt; s;
-</code></pre><h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><p>这里列举n = 3, 递归压栈，压满的序列应该是 3 2 1，这里有递归边界，p不能等于3，<br>
+        <h1 id="网易云因为版权生成不了外链的问题解决方法"><a href="#网易云因为版权生成不了外链的问题解决方法" class="headerlink" title="网易云因为版权生成不了外链的问题解决方法"></a>网易云因为版权生成不了外链的问题解决方法</h1><p>1.首先鼠标右键点击’生成外链’按钮，选择查看元素<br>
         
-          <a class="article-more-a" href="/2019/03/08/输出栈序列-栈的递归各种脑洞/#more">more >></a>
+          <a class="article-more-a" href="/2019/02/24/关于hexo博客添加背景音乐的一些问题方案/#more">more >></a>
         
       
 
@@ -212,1462 +201,11 @@ stack&lt;int&gt; s;
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/08/输出栈序列-栈的递归各种脑洞/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-初级dp问题-最长不下降子序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/08/初级dp问题-最长不下降子序列/">初级Dp问题-最长不下降子序列</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/08/初级dp问题-最长不下降子序列/" class="archive-article-date">
-  	<time datetime="2019-03-08T09:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805437411475456" target="_blank" rel="noopener">1045 Favorite Color Stripe</a></p>
-<p>学好计算机，英语一定要好，我觉得英语这门语言不像法语精确，虽然汉语也不精确。。。看题目要仔细，英语基础要好。</p>
-<p>这道题总体思路是，把她喜欢的颜色编一下号，然后把她所有的颜色<strong>映射</strong>成编号，写入A[num++]</p>
-<p>然后当每个位置i,从j属于0~i-1里面找到的最大非递减字串，且该位置j的颜色映射A[j] &lt;= A[i]</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ans = <span class="number">-1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">	dp[i] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (A[j] &lt;= A[i] &amp;&amp; dp[i] &lt; dp[j] + <span class="number">1</span>) &#123;</span><br><span class="line">			dp[i] = dp[j] + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	ans = max(ans, dp[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="理解了上面的话，这种题目就是小case了"><a href="#理解了上面的话，这种题目就是小case了" class="headerlink" title="理解了上面的话，这种题目就是小case了"></a>理解了上面的话，这种题目就是小case了</h2>
-        
-          <a class="article-more-a" href="/2019/03/08/初级dp问题-最长不下降子序列/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/08/初级dp问题-最长不下降子序列/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-平均点权" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/07/平均点权/">Dijkstra&amp;平均点权</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/07/平均点权/" class="archive-article-date">
-  	<time datetime="2019-03-07T15:40:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805379664297984" target="_blank" rel="noopener">1087 All Roads Lead to Rome</a></p>
-<p>计算平均点权的题之前没遇过。string作为结点的value的题已经雨果好几次了，可以用map解决<br>
-        
-          <a class="article-more-a" href="/2019/03/07/平均点权/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/07/平均点权/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-C-C-小知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/07/C-C-小知识/">C/C++小知识</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/07/C-C-小知识/" class="archive-article-date">
-  	<time datetime="2019-03-07T11:49:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>scanf(&quot;%[^\n]&quot;, &amp;a) 遇到回车结束。
-</code></pre><p>memset头文件</p>
-<pre><code>#include &lt;cstring&gt;
-</code></pre><p>vector&lt;vector<int>    v.size()是行数，v[0].size() 是列数</int></p>
-<p>如果是定义的 char s[maxn];,里面可能会出现空格，那么这样输入</p>
-<pre><code>scanf(&quot;%[^\n]&quot;, s);
-</code></pre><p>关闭同步</p>
-<pre><code>std::ios::sync_with_stdio(false);
-</code></pre><p>10-5   1e-5;</p>
-<p>Inf 可写作 0x3F3F3F3F (1&lt;&lt;31) - 1</p>
-<p>unordered_map 头文件也是 #include &lt;unordered_map&gt;</p>
-<p>map如果是字符串到整型的映射，必须使用string 而不能用char数组<br>    map&lt;string, int&gt;</p>
-<p>vector圆括号表示 方括号表示二维</p>
-<p>0和1不是质数</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">左对齐标题</th>
-<th style="text-align:right">右对齐标题</th>
-<th style="text-align:center">居中对齐标题</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">短文本</td>
-<td style="text-align:right">中等文本</td>
-<td style="text-align:center">稍微长一点的文本</td>
-</tr>
-<tr>
-<td style="text-align:left">稍微长一点的文本</td>
-<td style="text-align:right">短文本</td>
-<td style="text-align:center">中等文本</td>
-</tr>
-</tbody>
-</table>
-        
-          <a class="article-more-a" href="/2019/03/07/C-C-小知识/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/07/C-C-小知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="gas-station" class="article article-type-gas  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/07/station/">Gas Station</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/07/station/" class="archive-article-date">
-  	<time datetime="2019-03-06T16:42:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805396953219072" target="_blank" rel="noopener">1072 Gas Station</a><br>这道题读懂题意也是不简单，恨我英语渣啊。。。怪不得说英语是计算机的第二语言，什么时候我的英语才能上一个台阶~！</p>
-<p>题目要求在n个住户之间建一个加油站，提供m个加油站的备选位置，<strong>要求是加油站离住户尽可能远，且不超出他的service range</strong></p>
-<p>这里用的是Dijkstra对每个加油站求一次，时间复杂度上面应该比弗洛伊德好。</p>
-<p>这里有以下坑点：</p>
-<ol>
-<li>可能越界。const int maxn 应该为 &gt; n + m,取1020比较安全，反正开数组不用钱</li>
-<li>是最短距离尽可能远的位置，不是尽可能近</li>
-<li>命名上面自己思路要清晰，不然很多变量比较来比较去的，不仔细很容易犯错，而且需要一些浮点与整形的比较</li>
-</ol>
-<p>另外，四舍五入真的是玄学，不知道什么时候可以自动转，什么时候需要自己求<br>
-        
-          <a class="article-more-a" href="/2019/03/07/station/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/07/station/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-DFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/05/DFS/">DFS&amp;Dijkstra</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/05/DFS/" class="archive-article-date">
-  	<time datetime="2019-03-05T15:24:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805489282433024" target="_blank" rel="noopener">1018 Public Bike Management</a><br>这道题先用Dijkstra求出基地到目的地点的最佳路径，用vector数组pre[maxn]存储所有途径路径最短的结点，</p>
-<p>再用DFS遍历，在遍历过程中，顺便比较出，携带车俩最少的路线，以及输出最小携带车俩数和最小剩余车俩</p>
-<p>为什么会有剩余车俩呢，因为假设倒数第二个站点有100俩车，最后一个站只缺一辆车，那么就多了99辆车，剩余的99辆车就需要带回基地。</p>
-<p>这道题的难点就在意如何写这个DFS.</p>
-<p>算法笔记这本书有个套路，关于Dijkstra只要输出路径，就需要用vector数组pre[maxn]存储所有路径的结点，</p>
-<p>例如 u -&gt; v<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(d[v] &gt; d[u] + G[u][v])&#123;</span><br><span class="line">  pre[v].push_back(u);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2019/03/05/DFS/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/05/DFS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-图的BFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/05/图的BFS/">图的BFS</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/05/图的BFS/" class="archive-article-date">
-  	<time datetime="2019-03-04T17:27:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>大致题意是给出n个用户的关注列表，英文不好的人别理解错了，然后假设某个用户发一条微博，最多会有多少转发量，微博辐射力至多传递L层</p>
-<p>就相当于在一个图中，选取一个点BFSL层，计算结点个数。</p>
-<p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805392092020736" target="_blank" rel="noopener">1076 Forwards on Weibo </a><br>
-        
-          <a class="article-more-a" href="/2019/03/05/图的BFS/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/05/图的BFS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-关于图的直径" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/04/关于图的直径/">关于图的直径，以及输出最长直径的根</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/04/关于图的直径/" class="archive-article-date">
-  	<time datetime="2019-03-03T16:59:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一道很有意思的算法题，里面有一个证明，还有一些坑：</p>
-<ul>
-<li>一个无环连通图的直径可以这样求解：先从任意一点A出发，到达离此结点最远的结点B，，再从B出发所能到达的最深的结点的长度，即是图的直径。</li>
-<li>直径不止一条</li>
-<li>首尾相同的结点对，可能形成多条路径。</li>
-</ul>
-<p>我被第三点卡了很久，后面三个case一直过不去。。<br>这个代码用的是并查集，求最远路径用的是DFS效率没有BFS高，建议用BFS试试。<br>
-        
-          <a class="article-more-a" href="/2019/03/04/关于图的直径/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/04/关于图的直径/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="emergency-Dijkstra" class="article article-type-emergency  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/28/Dijkstra/">Dijkstra</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/28/Dijkstra/" class="archive-article-date">
-  	<time datetime="2019-02-28T15:53:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一道甲级题，题目如下"><a href="#一道甲级题，题目如下" class="headerlink" title="一道甲级题，题目如下"></a>一道甲级题，题目如下</h2><p><a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805523835109376" target="_blank" rel="noopener">1003 Emergency （25 分）</a><br>
-        
-          <a class="article-more-a" href="/2019/02/28/Dijkstra/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/28/Dijkstra/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-科学上网的教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/26/科学上网的教程/">科学上网的教程，2刀一个月（可合租）</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/26/科学上网的教程/" class="archive-article-date">
-  	<time datetime="2019-02-26T08:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先打开<a href="https://cloudcone.com/" target="_blank" rel="noopener">Cloudcone</a>,注册一个账号，注意账号最好用gmail邮箱<br>
-        
-          <a class="article-more-a" href="/2019/02/26/科学上网的教程/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">科学上网</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/26/科学上网的教程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-Java的前几个步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/25/Java的前几个步骤/">Java的前几个步骤</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/25/Java的前几个步骤/" class="archive-article-date">
-  	<time datetime="2019-02-25T11:49:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>notepad++  设置首选项-&gt;新建-&gt;格式改为Java，编码改为ascii</p>
-<p>开发Java程序的步骤：<br>
-        
-          <a class="article-more-a" href="/2019/02/25/Java的前几个步骤/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/25/Java的前几个步骤/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-第一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/25/第一天/">英语发音</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/25/第一天/" class="archive-article-date">
-  	<time datetime="2019-02-24T20:15:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <div id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">总阅读量<span id="busuanzi_value_page_pv"></span>次</div>
-    <h1 id="发不准的音"><a href="#发不准的音" class="headerlink" title="发不准的音"></a>发不准的音</h1><ul>
-<li>circle</li>
-</ul>
-
-  
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">English</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/25/第一天/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-起风了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/25/起风了/">起风了 唯有努力生存</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/25/起风了/" class="archive-article-date">
-  	<time datetime="2019-02-24T19:36:56.390Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://i.loli.net/2019/02/23/5c7127d4ccfaf.jpg" width="520" height="433" alt="卷土重来"></p>
-<h3 id="也许人只有在不顺与迷茫的时候，才会对人生有更多领悟吧。"><a href="#也许人只有在不顺与迷茫的时候，才会对人生有更多领悟吧。" class="headerlink" title="也许人只有在不顺与迷茫的时候，才会对人生有更多领悟吧。"></a>也许人只有在不顺与迷茫的时候，才会对人生有更多领悟吧。</h3>
-        
-          <a class="article-more-a" href="/2019/02/25/起风了/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/25/起风了/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-学习github" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/24/学习github/">学习Github</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/24/学习github/" class="archive-article-date">
-  	<time datetime="2019-02-24T06:48:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="为什么要学习github"><a href="#为什么要学习github" class="headerlink" title="为什么要学习github"></a>为什么要学习github</h1><h3 id="当你一切搞定之后，就是日常三部曲"><a href="#当你一切搞定之后，就是日常三部曲" class="headerlink" title="当你一切搞定之后，就是日常三部曲"></a>当你一切搞定之后，就是日常三部曲</h3><pre><code>$ git add .
-
-$ git commit -m -a
-
-$ git push origin hexo
-</code></pre><p>再也不用担心备份或者删库的问题</p>
-<p>关联远程库：</p>
-<pre><code>$ git remote add origin https://github.com/wallacezh/patcode.git
-</code></pre><p> ! [rejected]        master -&gt; master (non-fast-forward)<br>error: failed to push some refs to ‘<a href="https://github.com/wallacezh/patcode.git&#39;" target="_blank" rel="noopener">https://github.com/wallacezh/patcode.git&#39;</a></p>
-<p>本地强制上传到远程，把远程的覆盖</p>
-<pre><code>$ git push origin master -f
-</code></pre><h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2>
-        
-          <a class="article-more-a" href="/2019/02/24/学习github/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/24/学习github/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '8f3a5336c7cd17cf678e',
-  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
-  	repo: 'wallacezh.github.io',
-  	owner: 'wallacezh',
-  	admin: ['wallacezh'],
-  	id: '',
-  	distractionFreeMode: 'false'
-})
-gitalk.render('gitalk-container')
-}
-</script>
-
-  
-
-  
-    <article id="post-较为有用的Atom快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/24/较为有用的Atom快捷键/">较为有用的Atom快捷键</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/24/较为有用的Atom快捷键/" class="archive-article-date">
-  	<time datetime="2019-02-23T16:58:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="实用的Atom快捷键"><a href="#实用的Atom快捷键" class="headerlink" title="实用的Atom快捷键"></a>实用的Atom快捷键</h1><ul>
-<li><p>ctrl-enter：光标之下增加一行</p>
-</li>
-<li><p>ctrl-shift-enter：光标之上增加一行</p>
-        
-          <a class="article-more-a" href="/2019/02/24/较为有用的Atom快捷键/#more">more >></a>
-        
-      
-
-      
-    </li></ul></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">atom</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
         		</li>
       		
 		</ul>
@@ -1677,7 +215,109 @@ gitalk.render('gitalk-container')
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/24/较为有用的Atom快捷键/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/02/24/关于hexo博客添加背景音乐的一些问题方案/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '8f3a5336c7cd17cf678e',
+  	clientSecret: 'bde98e5f0ed9f4939457fbf51faa7c3b63b0b6bd',
+  	repo: 'wallacezh.github.io',
+  	owner: 'wallacezh',
+  	admin: ['wallacezh'],
+  	id: '',
+  	distractionFreeMode: 'false'
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
+  
+    <article id="post-搭建博客遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/23/搭建博客遇到的问题/">搭建博客遇到的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/23/搭建博客遇到的问题/" class="archive-article-date">
+  	<time datetime="2019-02-23T09:26:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>分类插件，tags插件，四个身位</p>
+        
+          <a class="article-more-a" href="/2019/02/23/搭建博客遇到的问题/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/23/搭建博客遇到的问题/">展开全文 >></a>
         </p>
       
 
@@ -1731,7 +371,7 @@ gitalk.render('gitalk-container')
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
     </nav>
   
 
