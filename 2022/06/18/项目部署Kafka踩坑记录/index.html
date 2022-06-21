@@ -157,15 +157,34 @@
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
                 <p>zookeeper单机部署三个节点，一直启动失败，原因需要在每个data节点文件中写入一个myid文件。<br>echo 1 &gt; dir/data/zk1/myid</p>
-<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3cqxe1j8qj216q0o6tcr.jpg"><br>查看所有topic<br>bin/kafka-topics.sh –bootstrap-server 9.135.76.106:9092 –list</p>
-<p>创建topic first<br>bin/kafka-topics.sh –bootstrap-server 9.135.76.106:9092 –topic first –create –partitions 1 – replication-factor 3</p>
-<p>查看topic详情<br>bin/kafka-topics.sh –bootstrap-server 9.135.76.106:9092 –topic first –describe</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3cqxe1j8qj216q0o6tcr.jpg"><br>查看所有topic</p>
+<blockquote>
+<p>bin/kafka-topics.sh –bootstrap-server 9.135.76.106:9092 –list</p>
+</blockquote>
+<p>创建topic first</p>
+<blockquote>
+<p>bin/kafka-topics.sh –bootstrap-server 9.135.76.106:9092 –topic first –create –partitions 1 – replication-factor 3</p>
+</blockquote>
+<p>查看topic详情</p>
+<blockquote>
+<p>bin/kafka-topics.sh –bootstrap-server 9.135.76.106:9092 –topic first –describe</p>
+</blockquote>
 <p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3cr5ihfpmj20o604nt96.jpg"></p>
 <p>bin/kafka-topics.sh –bootstrap-server 9.135.76.106:9092 –topic first –alter –partitions 3<br><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3cro7zt2sj20os05w0t7.jpg"><br>分区只能增加，不能减少。</p>
+<blockquote>
 <p>bin/kafka-console-producer.sh –bootstrap-server 9.135.76.106:9092 –topic first<br>向分区发送消息</p>
-<p>接收消息<br>/usr/local/kafka]# bin/kafka-console-consumer.sh –bootstrap-server 9.135.76.106:9092 –topic first</p>
-<p>从初始开始消费<br>bin/kafka-console-consumer.sh –bootstrap-server 9.135.76.106:9092 –topic first –from-beginning</p>
+</blockquote>
+<p>接收消息</p>
+<blockquote>
+<p>/usr/local/kafka]# bin/kafka-console-consumer.sh –bootstrap-server 9.135.76.106:9092 –topic first</p>
+</blockquote>
+<p>从初始开始消费</p>
+<blockquote>
+<p>bin/kafka-console-consumer.sh –bootstrap-server 9.135.76.106:9092 –topic first –from-beginning</p>
+</blockquote>
+<blockquote>
 <p>sh bin/zkCli.sh 进入zookeeper客户端</p>
+</blockquote>
 <p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3cy3eeqkej20ti02y0sx.jpg"></p>
 <p>下载prettyzoo，客户端，比较方便查看信息</p>
 <p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3cy5m9d7cj21eg0ssn46.jpg"></p>
