@@ -151,32 +151,82 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://tva1.sinaimg.cn/large/008i3skNgy1gtkpjpx1kjj61c80hojtl02.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >8月18日</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >推荐系统的探索</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>昨天遗留的bug有点多。热搜那一块根据criteria查询type好像无效。</p>
-<p>默认底纹还不知道怎么弄，默认底纹还需要修改。自动补全也还没做。</p>
-<p>Updates were rejected because the tip of your current branch is behind<br>解决办法，在push的最后加一个-f， 即强制push。</p>
-<p>出现问题的原因，自己手动在远程仓库修改了内容，而自己的仓库没有同步版本，</p>
-<p>git log可以查看commit的历史版本，在一个文件夹存着。</p>
-<p>git push origin c98xxxxxxxxxxxxxx:main</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtkrgnrmmcj60j807gwfm02.jpg"></p>
-<p>findOneLevelOrderByLevelAsc</p>
-<p>lambda表达式后半段是需要传参数的，名字要注意。</p>
-<p>Jpa多条件查询命名规则</p>
-<p>findBy+属性名+”查询方式”+”多条件连接符(and|or)” +属性名+”查询方式”   精准匹配可以省略</p>
-<p>SQL的count语法</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(column_name) <span class="keyword">from</span> table_name;</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="keyword">distinct</span> column_name) <span class="keyword">from</span> table_name;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>Jpa的sql无缘无故报错极有可能是native没开。</p>
-<p>select后面接什么只选一条记录呀 limit 1</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtl1vyu0jnj617n0u0dj702.jpg"></p>
-<p>原来是Dto里面没有加Data注解。</p>
-<p>然后Maven-clean</p>
+                <p>一、架构流与业务流</p>
+<p>1、用户行为收集，业务数据收集</p>
+<p>2、批量计算，用户文章画像</p>
+<p>3、用户的召回结果、排序精选过程</p>
+<p>4、</p>
+<p>全量导入、增量导入（时间戳）</p>
+<p>第13个字符</p>
+<blockquote>
+<p>select article_id, user_id, channel_id, REPLACE(title, CHAR(13), ‘’) title, status, update_time<br>from news_article_basic limit 1</p>
+</blockquote>
+<p>flume用户收集日志，日志埋点</p>
+<p>点了哪篇文章，关注了哪篇文章，点赞了哪篇文章</p>
+<p>埋点参数，就是在应用中特定的流程收集一些信息，用来跟踪应用适用的状况，后续用来进一步优化产品或是提供运营的数据支撑。埋点数据是推荐系统的基石</p>
+<p>埋点参数文件结构</p>
+<ul>
+<li>曝光时间</li>
+<li>阅读时间</li>
+<li>类型id</li>
+<li>用户id</li>
+<li>参数<ul>
+<li>文章id列表</li>
+<li>使用的算法类型</li>
+</ul>
+</li>
+</ul>
+<p>点击行为发生的参数</p>
+<ul>
+<li>阅读时长</li>
+<li>类型id</li>
+<li>参数<ul>
+<li>行为<ul>
+<li>阅读</li>
+<li>收藏</li>
+</ul>
+</li>
+<li>用户id</li>
+<li>文章id</li>
+<li>哪个算法推荐的</li>
+</ul>
+</li>
+</ul>
+<p>目的，通过flume将业务数据服务器A的日志收集到Hadoop服务器hdfs的hive</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3g6t2ovdfj20ld0am0ts.jpg"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3g6vg2z6kj20kt0asab8.jpg"></p>
+<p>文章的textrank计算，在jieba.analyse.TextRank</p>
+<p>增量导入</p>
+<ul>
+<li>incremental<ul>
+<li>append，即通过指定一个递增的列，每次指定一个最后的上次导入用户id<ul>
+<li>若用户id不是递增，雪花算法唯一id</li>
+</ul>
+</li>
+<li>lastmodified：最后修改时间<ul>
+<li>check-column column：时间戳字段 –merge-key，指定从什么时候开始更新</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>word2vec 与文章相似度，可拓展为相似的影视实体</p>
+<p>首页频道推荐，每个频道推荐的时候，会通过计算两两实体的相似度，快速达到在线推荐的效果，比如用户点击文章，</p>
+<p>我们可以将离线计算好相似度的文章排序快速推荐给该用户。此方式也可解决冷启动的问题。（</p>
+<p>方式 1。 计算两两实体之间的相似度<br>计算两个实体的word2vec或者doc2vec向量的相似度。</p>
+<p>word2vec模型介绍。</p>
+<p>词的独热表示，One-hot Representation</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3g8ou3y5kj20m4069wf7.jpg"></p>
+<p>灯泡预寸在某个位置，灯管同理。</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3g8szq8iij20l505baam.jpg"></p>
+<p>一个句子的概率，用n-gram表示</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3g8w1oglpj20lb09tt9l.jpg"></p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3g8xnhi3pj20ke042mxi.jpg"></p>
 
             </div>
 
@@ -239,8 +289,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2021/08/18/8%E6%9C%8817%E6%97%A5/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2021/08/18/8%E6%9C%8817%E6%97%A5/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2022/06/21/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%8E%A2%E7%B4%A2/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/06/21/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%8E%A2%E7%B4%A2/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
